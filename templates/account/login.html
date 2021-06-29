@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="login-bg-gray">
+        <div class="login-block">
+            <a href="{% url 'homepage' %}" class="logo-link">
+                <img src="{% static 'img/logo.png' %}" alt="Logotype">
+            </a>
+            <form class="login-box" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="field-row">
+                    <label for="loginEmail">Email</label>
+                    <input name="username" class="field" id="loginEmail" type="text">
+                </div>
+                <div class="field-row">
+                    <label for="loginPass">Пароль</label>
+                    <input name="password" class="field" id="loginPass" type="text">
+                </div>
+                <button type="submit" class="btn btn-primary waves-effect w-100 btn-login">
+                    <div class="loader-05"></div>
+                    Войти
+                </button>
+                <div class="remember d-flex align-items-center justify-content-between">
+                    <a href="forgot.html" class="forgot-password">Забыли пароль?</a>
+                    <a href="{% url 'register' %}" class="forgot-password">Регистрация</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if error %}
+        <div class="login-incorrect">
+            <p>Пользователь не найден или неправильный пароль</p>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 13L13 1M13 13L1 1" stroke="#0068FC" stroke-width="2" />
+            </svg>
+        </div>
+    {% endif %}
+{% endblock %}

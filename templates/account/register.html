@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Start your project here-->
+    <div class="login-bg-gray">
+        <div class="login-block">
+            <a href="{% url 'homepage' %}" class="logo-link">
+                <img src="{% static 'img/logo.png' %}" alt="Logotype">
+            </a>
+            <form class="login-box" method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+                <div class="field-row">
+                    <label for="registerName">Имя</label>
+                    <input name="first_name" class="field" id="registerName" type="text">
+                </div>
+                <div class="field-row">
+                    <label for="registerEmail">Email</label>
+                    <input name="email" class="field" id="registerEmail" type="text">
+                </div>
+                <div class="field-row">
+                    <label for="registerPass">Пароль</label>
+                    <input name="password" class="field" id="registerPass" type="text">
+                </div>
+                <div class="field-row">
+                    <label for="registerPassRepeat">Повторить пароль</label>
+                    <input name="password2" class="field" id="registerPassRepeat" type="text">
+                </div>
+                <p style="color: red; padding-bottom: 10px; text-align: center;">{{ error }}</p>
+                <button class="btn btn-primary waves-effect w-100">Зарегистрироваться</button>
+                <div class="have-account d-flex align-items-center justify-content-center">
+                    <span>У вас есть аккаунт?</span>
+                    <a href="{% url 'login' %}" class="login-link">Войти</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,814 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block content %}
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-white scrolling-navbar">
+            <div class="container-fluid">
+                <div class="navbar-top d-flex align-items-center justify-content-between w-100">
+                    <a href="/" class="navbar-brand waves-effect">Платформа</a>
+                    <a href="#" class="bell waves-effect modal-notify-btn" data-mdb-toggle="modal" data-mdb-target="#notificationsModal">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        {% include 'menu.html' %}
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="row fadeIn">
+                <div class="col-md-3">
+                    <ul class="quiz-steps">
+                        <li class="quiz-steps__item d-flex align-items-center active" id="step1">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">1</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Информация о клиенте</span>
+                        </li>
+                        <li class="quiz-steps__item d-flex align-items-center" id="step2">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">2</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Тип портфеля</span>
+                        </li>
+                        <li class="quiz-steps__item d-flex align-items-center" id="step3">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">3</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Риск профиль</span>
+                        </li>
+                        <li class="quiz-steps__item d-flex align-items-center" id="step4">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">4</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Структура портфеля</span>
+                        </li>
+                        <li class="quiz-steps__item d-flex align-items-center" id="step5">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">5</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Инвестиционная стратегия</span>
+                        </li>
+                        <li class="quiz-steps__item d-flex align-items-center" id="step6">
+                            <div class="quiz-steps__icon">
+                                <span class="quiz-steps__number">6</span>
+                                <svg class="complete-step" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4L6 9L14 1" stroke="white" />
+                                </svg>
+                            </div>
+                            <span class="quiz-steps__name">Резюме</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="card quiz__card quiz__card_1">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 0H3C2.33696 0 1.70107 0.263392 1.23223 0.732233C0.763392 1.20107 0.5 1.83696 0.5 2.5V17.5C0.5 18.163 0.763392 18.7989 1.23223 19.2678C1.70107 19.7366 2.33696 20 3 20H13C13.663 20 14.2989 19.7366 14.7678 19.2678C15.2366 18.7989 15.5 18.163 15.5 17.5V2.5C15.5 1.83696 15.2366 1.20107 14.7678 0.732233C14.2989 0.263392 13.663 0 13 0V0ZM11.75 8.75C11.75 9.74456 11.3549 10.6984 10.6517 11.4017C9.94839 12.1049 8.99456 12.5 8 12.5C7.00544 12.5 6.05161 12.1049 5.34835 11.4017C4.64509 10.6984 4.25 9.74456 4.25 8.75C4.25 7.75544 4.64509 6.80161 5.34835 6.09835C6.05161 5.39509 7.00544 5 8 5C8.99456 5 9.94839 5.39509 10.6517 6.09835C11.3549 6.80161 11.75 7.75544 11.75 8.75ZM8 13.75C11.2787 13.75 13.1825 14.7825 14.25 15.9438V17.5C14.25 17.8315 14.1183 18.1495 13.8839 18.3839C13.6495 18.6183 13.3315 18.75 13 18.75H3C2.66848 18.75 2.35054 18.6183 2.11612 18.3839C1.8817 18.1495 1.75 17.8315 1.75 17.5V15.9438C2.8175 14.7812 4.72125 13.75 8 13.75Z" fill="#0068FC" />
+                            </svg>
+                            Информация о клиенте
+                        </div>
+                        <form id="portfolio-form" action="." method="post">
+                            {% csrf_token %}
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <div class="radio-block">
+                                    <div class="radio-block__header">
+                                        <div class="choice d-flex align-items-center">
+                                            <input type="radio" name="clientInfo" id="existingClient" checked>
+                                            <label for="existingClient">Выберите существующего клиента</label>
+                                        </div>
+                                    </div>
+                                    <div class="radio-block__hidden active">
+                                        <select name="client_name" class="bs-select" id="clientSelect" title="Выберите клиента из списка">
+                                            {% for i in all_clients %}
+                                                <option value="{{ i.pk }}">{{ i.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz__right">
+                                <h3 class="quiz__title">Выберите клиента для нового портфолио!</h3>
+                                <p class="quiz__text">
+                                    Повседневная практика показывает, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании форм развития.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button type="button" class="btn btn-light ml-auto quiz__next waves-effect" id="next1">Далее</button>
+                        </div>
+                    </div>
+                    <div class="card quiz__card quiz__card_2">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="5" width="13" height="18" rx="1" fill="#4497E3" />
+                                <rect x="1" y="2" width="16" height="18" rx="1" fill="#0068FC" />
+                            </svg>
+                            Тип портфеля
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <div class="field-row">
+                                    <h3 class="quiz__heading">
+                                        Название портфеля
+                                    </h3>
+                                    <input name="name" class="field" id="addClientName" type="text">
+                                </div>
+                                <!-- <div class="new-portfolio">
+                                    <h3 class="quiz__heading">
+                                        Вы хотите создать новый портфель?
+                                    </h3>
+                                    <div class="d-flex align-items-center radio__row radio__row_ml">
+                                        <input type="radio" name="portfolio" id="newPortfolio" checked>
+                                        <label for="newPortfolio">Создание нового портфеля</label>
+                                    </div>
+                                    <div class="d-flex align-items-center radio__row radio__row_ml">
+                                        <input type="radio" name="portfolio" id="existingPortfolio">
+                                        <label for="existingPortfolio">Импорт существующего портфеля</label>
+                                    </div>
+                                    <div class="uploud-wrap">
+                                        <div class="loader-05"></div>
+                                        <button class="btn_off">
+                                            <span class="dropzone-uploud__text" id="dropzone">Выбрать файл</span>
+                                        </button>
+                                    </div>
+                                </div> -->
+                                <div class="type-portfolio">
+                                    <h3 class="quiz__heading">
+                                        Тип портфеля
+                                    </h3>
+                                    <!--<div class="radio-block">
+                                        <div class="radio-block__header">
+                                            <div class="choice d-flex align-items-center">
+                                                <input type="radio" name="typePortfolio" id="taxPortfolio" checked>
+                                                <label for="taxPortfolio">Квалифицированный инвестор</label>
+                                            </div>
+                                        </div>
+                                        <div class="radio-block__hidden active">
+                                            <p class="quiz__caption">Какой тип учетной записи?</p>
+                                            <select class="bs-select" id="typeProfile" title="Выберите тип учетной записи">
+                                                <option value="0">Individual</option>
+                                                <option value="1">Joint</option>
+                                                <option value="2">Trust</option>
+                                                <option value="3">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="radio-block">
+                                        <div class="radio-block__header">
+                                            <div class="choice d-flex align-items-center">
+                                                <input type="radio" name="typePortfolio" id="cofalifiedPortfolio">
+                                                <label for="cofalifiedPortfolio">Неквалифицированный инвестор</label>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <div style="margin-bottom:20px;">
+                                    <p class="quiz__caption">Тип портфеля</p>
+                                        <select name="type_investmen" style="margin-bottom: 20px;"  class="bs-select" id="clientPriority" title="Выберите тип портфеля">
+                                            <option value="0">Квалифицированный инвестор</option>
+                                            <option value="1">Неквалифицированный инвестор</option>
+                                        </select>
+                                    </div>
+                                    <div class="field-row">
+                                        <label for="investHorizont">Какой инвестиционный горизонт портфеля?</label>
+                                        <input name="investment_horizon" class="field" id="investHorizont" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz__right">
+                                <h3 class="quiz__title quiz__title_big">Выберите тип портфеля</h3>
+                                <p class="quiz__title">Налогооблагаемый Брокерский счет</p>
+                                <p class="quiz__text quiz__text_gray">
+                                    Texable accounts include individual, Joint Trust, Minor, and other Non-Oualified account types
+                                </p>
+                                <p class="quiz__title quiz__title_2">Налогооблагаемый Брокерский счет</p>
+                                <p class="quiz__text quiz__text_gray">
+                                    Сюда входит любой квалифицированный или отложенный по налогам счёт. Например, SEP. Roth или традиционные IRA. Физическое лицо 40 тк 529 Планы или другие типы счетов, защищённых от налогов
+                                </p>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button class="quiz__prev-btn ml-auto" id="prev2">Предыдущий шаг</button>
+                            <button type="button" class="btn btn-light quiz__next waves-effect" id="next2">Далее</button>
+                        </div>
+                    </div>
+                    <div class="card quiz__card quiz__card_3">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.5" cy="8.5" r="8.5" fill="#0068FC" />
+                                <path d="M9.33594 10.6484H7.70312L7.52344 2.625H9.52344L9.33594 10.6484ZM7.46875 13.1016C7.46875 12.8047 7.5651 12.5599 7.75781 12.3672C7.95052 12.1693 8.21354 12.0703 8.54688 12.0703C8.88021 12.0703 9.14323 12.1693 9.33594 12.3672C9.52865 12.5599 9.625 12.8047 9.625 13.1016C9.625 13.388 9.53125 13.6276 9.34375 13.8203C9.15625 14.013 8.89062 14.1094 8.54688 14.1094C8.20312 14.1094 7.9375 14.013 7.75 13.8203C7.5625 13.6276 7.46875 13.388 7.46875 13.1016Z" fill="white" />
+                            </svg>
+                            Риск профиль
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <div class="parameters-porfolio">
+                                    <h3 class="quiz__heading">
+                                        Параметры портфеля
+                                    </h3>
+                                            <p class="quiz__caption">Выберите базовую валюту портфеля</p>
+                                            <select name="currency" class="bs-select" id="clientPriority" title="Выберите валюту">
+                                                <option value="1">Рубли</option>
+                                                <option value="2">Доллары</option>
+                                            </select>
+                                    <div class="field-row">
+                                        <label for="startCapital">Начальная сумма инвестиций</label>
+                                        <input name="initial_investment_amount" class="field" id="startCapital" type="text">
+                                    </div>
+<!--                                     <div class="field-row">
+                                        <label for="fullPortfolioCost">Целевая стоимость портфеля</label>
+                                        <input class="field" id="fullPortfolioCost" type="text">
+                                    </div> -->
+                                </div>
+                                <div class="risk">
+                                    <h3 class="quiz__heading">
+                                        Оценка риска
+                                    </h3>
+                                    <div class="quiz__inner">
+                                        <div class="quiz__left">
+                                            <div class="radio-block">
+                                                <div class="radio-block__header">
+                                                    <div class="choice d-flex align-items-center">
+                                                        <input type="radio" name="riskRadio" id="cofalifiedPortfolio" checked>
+                                                        <label for="riskRadio">По умолчанию</label>
+                                                    </div>
+                                                </div>
+                                                <div class="radio-block__hidden active">
+                                                    <p class="quiz__caption">Максимально допустимая просадка</p>
+                                                    <div class="risk__slider d-flex align-items-center justify-content-between">
+                                                        <input name="maximum_allowable_drawdown" class="field field_small risk__slider-field" type="text" value="50%">
+                                                        <div class="slider__wrap">
+                                                            <div class="slider__line line ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" id="sliderRisk" data-min="0" data-max="100">
+                                                                <div class="slider__btn ui-slider-handle ui-corner-all ui-state-default" tabindex="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="quiz__right">
+                                            <h3 class="quiz__subtitle">Терпимость к риску</h3>
+                                            <p class="quiz__text quiz__text_gray">Повседневная практика показывает, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании форм развития. Разнообразный и богатый опыт дальнейшее развитие различных.</p>
+                                            <a href="#" class="quiz__link">The Investment time horizon of the portfolio is 25 years</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="invest-priority">
+                                    <h3 class="quiz__heading">
+                                        Инвестиционный приоритет
+                                    </h3>
+                                    <div class="quiz__inner">
+                                        <div class="quiz__left">
+                                            <div style="margin-bottom: 20px;">
+                                            <p class="quiz__caption">Выберите тип портфеля по соотношению риск/доходность</p>
+                                            <select name="type_according_risk_reward" style="margin-bottom:20px;" name="type_according_risk_reward" class="bs-select" id="clientPriority" title="Выберите приоритет">
+                                                <option value="0">Агрессивный</option>
+                                                <option value="1">Сбалансированный</option>
+                                                <option value="2">Консервативный</option>
+                                            </select>
+                                            </div>
+                                           <!--  <div class="volatility">
+                                                <h3 class="quiz__heading">
+                                                    Отношение к волотильности
+                                                </h3>
+                                                <p class="quiz__caption">Как бы клиент отреагировал на снижение своего портфеля на 20%?</p>
+                                                <select class="bs-select" id="clientVolatility" title="Choose a priority">
+                                                    <option value="Do Nothing">Do Nothing</option>
+                                                    <option value="Wait 3 Months before Making Changes">Wait 3 Months before Making Changes</option>
+                                                    <option value="Wait 1 Year before Making Changes">Wait 1 Year before Making Changes</option>
+                                                </select>
+                                            </div> -->
+                                            <p class="quiz__caption">Выберите фокус портфеля:</p>
+                                            <select name="focus-potfolio" class="bs-select" id="clientPriority" title="Выберите фокус портфеля">
+                                                <option value="0">Минимизация убытков</option>
+                                                <option value="1">Максимализация прибыли</option>
+                                            </select>
+                                        </div>
+                                        <div class="quiz__right">
+                                            <h3 class="quiz__subtitle">Отношение к волотильности</h3>
+                                            <p class="quiz__text quiz__text_gray">Повседневная практика показывает, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании форм развития. Разнообразный и богатый опыт дальнейшее развитие различных.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button class="quiz__prev-btn ml-auto" id="prev3">Предыдущий шаг</button>
+                            <button type="button" class="btn btn-light quiz__next waves-effect" id="next3">Далее</button>
+                        </div>
+                    </div>
+                    <div class="card quiz__card quiz__card_4">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.75 18.75H13.75V2.5H18.75V18.75Z" fill="#0068FC" />
+                                <path d="M12.5 18.75H7.5V7.5H12.5V18.75Z" fill="#0068FC" />
+                                <path d="M6.25 18.75H1.25V11.25H6.25V18.75Z" fill="#0068FC" />
+                            </svg>
+                            Структура Портфеля
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <h3 class="quiz__heading mb-0">
+                                    В какие виды активов будет инвестировать клиент?
+                                </h3>
+                                <div class="quiz__warning quiz__warning_1">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 0L11.1962 9H0.803848L6 0Z" fill="#C0C3D0" />
+                                        <path d="M6.30566 6.53369H5.59131L5.5127 3.02344H6.3877L6.30566 6.53369ZM5.48877 7.60693C5.48877 7.47705 5.53092 7.36995 5.61523 7.28564C5.69954 7.19906 5.81462 7.15576 5.96045 7.15576C6.10628 7.15576 6.22135 7.19906 6.30566 7.28564C6.38997 7.36995 6.43213 7.47705 6.43213 7.60693C6.43213 7.73226 6.39111 7.83708 6.30908 7.92139C6.22705 8.0057 6.11084 8.04785 5.96045 8.04785C5.81006 8.04785 5.69385 8.0057 5.61182 7.92139C5.52979 7.83708 5.48877 7.73226 5.48877 7.60693Z" fill="white" />
+                                    </svg>
+                                    (Классы активов, не относящиеся к России, предствавлены в виде ETF)
+                                </div>
+                                <div class="quiz__inner">
+                                    <div class="quiz__left">
+                                        <div class="field-row d-flex align-items-center">
+                                            <input type="checkbox" id="promotions" name="types-assets" value="Акции российских компаний">
+                                            <label for="promotions">Акции российских компаний</label>
+                                        </div>
+                                        <div class="field-row d-flex align-items-center">
+                                            <input type="checkbox" id="bonds" name="types-assets" value="Международные акции">
+                                            <label for="bonds">Международные акции</label>
+                                        </div>
+                                        <div class="field-row d-flex align-items-center">
+                                            <input type="checkbox" id="treasury" name="types-assets" value="Торговые рынки">
+                                            <label for="treasury">Торговые рынки</label>
+                                        </div>
+                                    </div>
+                                    <div class="quiz__right">
+                                        <h3 class="quiz__subtitle">Виды активов</h3>
+                                        <p class="quiz__text quiz__text_gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                                    </div>
+                                </div>
+                                <div class="remove-sectors">
+                                    <h3 class="quiz__heading">
+                                        Какие сектора вы хотели бы убрать из портфеля?
+                                    </h3>
+                                    <div class="sectors-list">
+                                        <div class="sector">
+                                            <input type="checkbox" id="finance" name="sectors" value="Финансовый">
+                                            <label for="finance">Финансовый</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="health" name="sectors" value="Здравоохранение">
+                                            <label for="health">Здравоохранение</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="consumer" name="sectors" value="Потребительские услуги">
+                                            <label for="consumer">Потребительские услуги</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="energy" name="sectors" value="Энергетический">
+                                            <label for="energy">Энергетический</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="industrial" name="sectors" value="Промышленный">
+                                            <label for="industrial">Промышленный</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="consumer_goods" name="sectors" value="Потребительские товары">
+                                            <label for="consumer_goods">Потребительские товары</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="estate" name="sectors" value="Недвижимость">
+                                            <label for="estate">Недвижимость</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="technological" name="sectors" value="Технологический">
+                                            <label for="technological">Технологический</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="materials" name="sectors" value="Сырьевой">
+                                            <label for="materials">Сырьевой</label>
+                                        </div>
+                                        <div class="sector">
+                                            <input type="checkbox" id="telecommunication" name="sectors" value="Телекоммуникационный">
+                                            <label for="telecommunication">Телекоммуникационный</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="securities">
+                                    <h3 class="quiz__heading">
+                                        Есть ли ценные бумаги, которые должны быть исключены из портфеля?
+                                    </h3>
+                                    <select class="bs-select" title="Выберите из списка">
+                                        {% for i in all_stocks %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="etf">
+                                    <h3 class="quiz__heading">
+                                        Хотели ли бы вы, чтобы ваш клиент инвестировал в ETF?
+                                    </h3>
+                                    <div class="quiz__warning quiz__warning_2">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 0L11.1962 9H0.803848L6 0Z" fill="#C0C3D0" />
+                                            <path d="M6.30566 6.53369H5.59131L5.5127 3.02344H6.3877L6.30566 6.53369ZM5.48877 7.60693C5.48877 7.47705 5.53092 7.36995 5.61523 7.28564C5.69954 7.19906 5.81462 7.15576 5.96045 7.15576C6.10628 7.15576 6.22135 7.19906 6.30566 7.28564C6.38997 7.36995 6.43213 7.47705 6.43213 7.60693C6.43213 7.73226 6.39111 7.83708 6.30908 7.92139C6.22705 8.0057 6.11084 8.04785 5.96045 8.04785C5.81006 8.04785 5.69385 8.0057 5.61182 7.92139C5.52979 7.83708 5.48877 7.73226 5.48877 7.60693Z" fill="white" />
+                                        </svg>
+                                        Комиссия фондов ETF
+                                    </div>
+                                    <div class="d-flex align-items-center radio__row radio__row_ml">
+                                        <input type="radio" name="etf" id="etfNo" value="Нет">
+                                        <label for="etfNo">Нет</label>
+                                    </div>
+                                    <div class="d-flex align-items-center radio__row radio__row_ml">
+                                        <input type="radio" name="etf" id="etfYes" value="Да">
+                                        <label for="etfYes">Да</label>
+                                    </div>
+                                    <div class="d-flex align-items-center radio__row radio__row_ml">
+                                        <input type="radio" name="etf" id="etfOn" value="Только в ETF">
+                                        <label for="etfOn">Исключительно в ETF</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button class="quiz__prev-btn ml-auto" id="prev4">Предыдущий шаг</button>
+                            <button type="button" class="btn btn-light quiz__next waves-effect" id="next4">Далее</button>
+                        </div>
+                    </div>
+                    <div class="card quiz__card quiz__card_5">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 20H1V11H10V20Z" fill="#0068FC" />
+                                <path d="M20 20H11V11H20V20Z" fill="#0068FC" />
+                                <path d="M10 10H1V1H10V10Z" fill="#0068FC" />
+                                <path d="M13 5H19M16 2V8" stroke="#0068FC" />
+                            </svg>
+                            Инвестиционная стратегия
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <div class="radio-block">
+                                    <div class="radio-block__header">
+                                        <div class="choice d-flex align-items-center">
+                                            <input name="invest_strategy" type="radio" id="default" name="invest-strategy" checked value="0">
+                                            <label for="default">По умолчанию</label>
+                                        </div>
+                                    </div>
+                                    <div class="radio-block__hidden active open-all">
+                                        <p class="hidden-text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="radio-block">
+                                    <div class="radio-block__header">
+                                        <div class="choice d-flex align-items-center">
+                                            <input name="invest_strategy" type="radio" id="focusGrowth" name="invest-strategy" value="1">
+                                            <label for="focusGrowth">Фокус на рост</label>
+                                        </div>
+                                    </div>
+                                    <div class="radio-block__hidden active open-all">
+                                        <p class="hidden-text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. cIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="radio-block">
+                                    <div class="radio-block__header">
+                                        <div class="choice d-flex align-items-center">
+                                            <input name="invest_strategy" type="radio" id="diversification" name="invest-strategy" value="2">
+                                            <label for="diversification">Фокус на диверсификацию</label>
+                                        </div>
+                                    </div>
+                                    <div class="radio-block__hidden active open-all">
+                                        <p class="hidden-text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum has been the industry's. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. cIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz__right">
+                                <h3 class="quiz__title">Направление стратегии</h3>
+                                <p class="quiz__text">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button class="quiz__prev-btn ml-auto" id="prev5">Предыдущий шаг</button>
+                            <button type="button" class="btn btn-light quiz__next waves-effect active" id="next5">Далее</button>
+                        </div>
+                    </div>
+                    <div class="card quiz__card quiz__card_6">
+                        <div class="card-header d-flex align-items-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="10" r="9" fill="#0068FC" />
+                                <path d="M10.8052 15H9.02539V7.0752H10.8052V15ZM8.91553 5.01709C8.91553 4.74365 9.00098 4.5166 9.17188 4.33594C9.34766 4.15527 9.59668 4.06494 9.91895 4.06494C10.2412 4.06494 10.4902 4.15527 10.666 4.33594C10.8418 4.5166 10.9297 4.74365 10.9297 5.01709C10.9297 5.28564 10.8418 5.51025 10.666 5.69092C10.4902 5.8667 10.2412 5.95459 9.91895 5.95459C9.59668 5.95459 9.34766 5.8667 9.17188 5.69092C9.00098 5.51025 8.91553 5.28564 8.91553 5.01709Z" fill="white" />
+                            </svg>
+                            Резюме
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="quiz__main">
+                                <div class="info-block">
+                                    <div class="info-block__header d-flex align-items-center justify-content-between">
+                                        <h3 class="info-block__title">Информация о клиенте</h3>
+                                        <button class="step-change" id="change1">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19C2 18.7348 2.10536 18.4804 2.29289 18.2929C2.48043 18.1054 2.73478 18 3 18ZM2 13L12 3L15 6L5 16H2V13ZM13 2L15 0L18 3L15.999 5.001L13 2Z" fill="#2E364A" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="info-block__content">
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Имя</div>
+                                            <div class="info-block__right" id="infoName"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Описание</div>
+                                            <div class="info-block__right" id="infoDesc"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Дата рождения</div>
+                                            <div class="info-block__right" id="infoBirthday"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Выход на пенсию</div>
+                                            <div class="info-block__right" id="infoPension"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Статус Занятости</div>
+                                            <div class="info-block__right" id="infoBusyness"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Поведение при просадках</div>
+                                            <div class="info-block__right" id="infoDrawdowns"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="info-block__header d-flex align-items-center justify-content-between">
+                                        <h3 class="info-block__title">Тип портфеля</h3>
+                                        <button class="step-change" id="change2">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19C2 18.7348 2.10536 18.4804 2.29289 18.2929C2.48043 18.1054 2.73478 18 3 18ZM2 13L12 3L15 6L5 16H2V13ZM13 2L15 0L18 3L15.999 5.001L13 2Z" fill="#2E364A" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="info-block__content">
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Тип фонда</div>
+                                            <div class="info-block__right" id="infoTypeFond"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Тип инвестиций</div>
+                                            <div class="info-block__right" id="infoTypeInvest"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Срок инвестирования</div>
+                                            <div class="info-block__right" id="infoTimeInvest"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="info-block__header d-flex align-items-center justify-content-between">
+                                        <h3 class="info-block__title">Риск профиль</h3>
+                                        <button class="step-change" id="change3">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19C2 18.7348 2.10536 18.4804 2.29289 18.2929C2.48043 18.1054 2.73478 18 3 18ZM2 13L12 3L15 6L5 16H2V13ZM13 2L15 0L18 3L15.999 5.001L13 2Z" fill="#2E364A" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="info-block__content">
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Начальный капитал</div>
+                                            <div class="info-block__right" id="infoStartCapital"></div>
+                                        </div>
+<!--                                         <div class="info-block__row">
+                                            <div class="info-block__left">Целевое значение</div>
+                                            <div class="info-block__right" id="infoFullCost"></div>
+                                        </div> -->
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Риск</div>
+                                            <div class="info-block__right" id="infoRiskPercent"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Инвестиционный приоритет</div>
+                                            <div class="info-block__right" id="infoInvestPriority"></div>
+                                        </div>
+<!--                                         <div class="info-block__row">
+                                            <div class="info-block__left">Поведение при просадках</div>
+                                            <div class="info-block__right" id="infoDoDrawdowns"></div>
+                                        </div> -->
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Фокус</div>
+                                            <div class="info-block__right" id="infoFocus"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="info-block__header d-flex align-items-center justify-content-between">
+                                        <h3 class="info-block__title">Структура портфеля</h3>
+                                        <button class="step-change" id="change4">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19C2 18.7348 2.10536 18.4804 2.29289 18.2929C2.48043 18.1054 2.73478 18 3 18ZM2 13L12 3L15 6L5 16H2V13ZM13 2L15 0L18 3L15.999 5.001L13 2Z" fill="#2E364A" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="info-block__content">
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Классы активов</div>
+                                            <div class="info-block__right" id="infoActives"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Исключенные секторы</div>
+                                            <div class="info-block__right" id="infoRemoveSectors"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Исключенные акции</div>
+                                            <div class="info-block__right" id="infoRemoveActions"></div>
+                                        </div>
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">ETF</div>
+                                            <div class="info-block__right" id="infoEtf"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="info-block__header d-flex align-items-center justify-content-between">
+                                        <h3 class="info-block__title">Инвестиционная стратегия</h3>
+                                        <button class="step-change" id="change5">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18H17C17.2652 18 17.5196 18.1054 17.7071 18.2929C17.8946 18.4804 18 18.7348 18 19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19C2 18.7348 2.10536 18.4804 2.29289 18.2929C2.48043 18.1054 2.73478 18 3 18ZM2 13L12 3L15 6L5 16H2V13ZM13 2L15 0L18 3L15.999 5.001L13 2Z" fill="#2E364A" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="info-block__content">
+                                        <div class="info-block__row">
+                                            <div class="info-block__left">Стратегия</div>
+                                            <div class="info-block__right" id="infoStrategy"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz__toggler d-flex">
+                            <button class="quiz__prev-btn ml-auto" id="prev6">Предыдущий шаг</button>
+                            <button type="submit" class="btn btn-light quiz__next waves-effect quiz__complete" id="next6">Предпросмотр портфеля</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preloader">
+            <div class="preloader__wrap">
+                <div class="preloader__block">
+                    <svg class="preloader__logo" width="122" height="87" viewBox="0 0 122 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M60.8206 63.3379L86.8353 0H122L78.0441 87H43.5971L0 0H34.8956L60.8206 63.3379Z" fill="#32A7D4" />
+                    </svg>
+                    <div class="linePreloader"></div>
+                    <p class="preloader__text">Loading assets</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modals -->
+    <div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-this" data-mdb-dismiss="modal" aria-label="Close">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L1.70711 0.292893ZM16.2929 17.7071C16.6834 18.0976 17.3166 18.0976 17.7071 17.7071C18.0976 17.3166 18.0976 16.6834 17.7071 16.2929L16.2929 17.7071ZM17.7071 1.70711C18.0976 1.31658 18.0976 0.683417 17.7071 0.292893C17.3166 -0.0976311 16.6834 -0.0976311 16.2929 0.292893L17.7071 1.70711ZM0.292893 16.2929C-0.0976311 16.6834 -0.0976311 17.3166 0.292893 17.7071C0.683417 18.0976 1.31658 18.0976 1.70711 17.7071L0.292893 16.2929ZM0.292893 1.70711L16.2929 17.7071L17.7071 16.2929L1.70711 0.292893L0.292893 1.70711ZM16.2929 0.292893L0.292893 16.2929L1.70711 17.7071L17.7071 1.70711L16.2929 0.292893Z" fill="#2E364A" />
+                    </svg>
+                </div>
+                <div class="modal-header">
+                    <div class="d-flex align-items-center">
+                        <h3 class="card-title">Уведомления</h3>
+                        <div class="dropdown ml-auto modal__dropdown">
+                            <button class="signals__sort-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                Сортировать
+                                <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5.5 6L7.75 3.5L10 1" stroke="#2E364A" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="nav nav-tabs modal__tabs" id="ex1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Новый</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect active" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Все</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Прочитаный</a>
+                        </li>
+                    </ul>
+                    <div class="long-search">
+                        <input type="search" id="form1" class="form-control" placeholder="Выбрать">
+                        <svg class="search-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14L11.0093 11.004L14 14ZM12.6666 7.00001C12.6666 8.5029 12.0696 9.94424 11.0069 11.0069C9.94421 12.0697 8.50287 12.6667 6.99998 12.6667C5.49709 12.6667 4.05575 12.0697 2.99304 11.0069C1.93034 9.94424 1.33331 8.5029 1.33331 7.00001C1.33331 5.49712 1.93034 4.05578 2.99304 2.99307C4.05575 1.93037 5.49709 1.33334 6.99998 1.33334C8.50287 1.33334 9.94421 1.93037 11.0069 2.99307C12.0696 4.05578 12.6666 5.49712 12.6666 7.00001V7.00001Z" stroke="#2E364A" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <p class="signals__date modals-notify__date">October 03, 2019 </p>
+                </div>
+                <div class="modal-body">
+                    <div class="signal signal-new">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="badge bg-danger">
+                                Новый
+                            </div>
+                            <p class="signal__date">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M5 0.625C2.58398 0.625 0.625 2.58398 0.625 5C0.625 7.41602 2.58398 9.375 5 9.375C7.41602 9.375 9.375 7.41602 9.375 5C9.375 2.58398 7.41602 0.625 5 0.625ZM5 8.63281C2.99414 8.63281 1.36719 7.00586 1.36719 5C1.36719 2.99414 2.99414 1.36719 5 1.36719C7.00586 1.36719 8.63281 2.99414 8.63281 5C8.63281 7.00586 7.00586 8.63281 5 8.63281Z" fill="#2D3C64"></path>
+                                        <path d="M6.70605 6.23633L5.31348 5.22949V2.8125C5.31348 2.76953 5.27832 2.73438 5.23535 2.73438H4.76563C4.72266 2.73438 4.6875 2.76953 4.6875 2.8125V5.50195C4.6875 5.52734 4.69922 5.55078 4.71973 5.56543L6.33496 6.74317C6.37012 6.76856 6.41895 6.76074 6.44434 6.72656L6.72363 6.3457C6.74902 6.30957 6.74121 6.26074 6.70605 6.23633Z" fill="#2D3C64"></path>
+                                    </g>
+                                </svg>
+                                Today, July 12, 2019, 11:36 AM
+                            </p>
+                        </div>
+                        <div class="signal__content">
+                            <h3 class="signal__title">Distribution Request Processed</h3>
+                            <p class="signal__text">Your saved portfolio for Client X(Mr Smith) has been waiting for more than 14 days. This portfolio will be automatically deletsd after 15 days unless it is refreshed or executed </p>
+                        </div>
+                        <div class="signal__footer">
+                            <div class="author">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.833333 10C0.833333 10 0 10 0 9.16667C0 8.33333 0.833333 5.83333 5 5.83333C9.16667 5.83333 10 8.33333 10 9.16667C10 10 9.16667 10 9.16667 10H0.833333ZM5 5C5.66304 5 6.29893 4.73661 6.76777 4.26777C7.23661 3.79893 7.5 3.16304 7.5 2.5C7.5 1.83696 7.23661 1.20107 6.76777 0.732233C6.29893 0.263392 5.66304 0 5 0C4.33696 0 3.70107 0.263392 3.23223 0.732233C2.76339 1.20107 2.5 1.83696 2.5 2.5C2.5 3.16304 2.76339 3.79893 3.23223 4.26777C3.70107 4.73661 4.33696 5 5 5V5Z" fill="#A5A8C3"></path>
+                                </svg>
+                                Craig Gordon
+                            </div>
+                            <div class="d-flex signal__bottom align-items-center justify-content-between">
+                                <div class="signal__note">
+                                    <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="7" height="8" rx="1" fill="#A5A8C3"></rect>
+                                    </svg>
+                                    Portfolio: Craig Gordon Investment Portfolio
+                                </div>
+                                <div class="signal-bottom__buttons">
+                                    <button class="btn_off already-read">Прочитано</button>
+                                    <a href="#" class="open-potfolio">Открыть портфель</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signal signal-new">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="badge bg-danger">
+                                Новый
+                            </div>
+                            <p class="signal__date">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M5 0.625C2.58398 0.625 0.625 2.58398 0.625 5C0.625 7.41602 2.58398 9.375 5 9.375C7.41602 9.375 9.375 7.41602 9.375 5C9.375 2.58398 7.41602 0.625 5 0.625ZM5 8.63281C2.99414 8.63281 1.36719 7.00586 1.36719 5C1.36719 2.99414 2.99414 1.36719 5 1.36719C7.00586 1.36719 8.63281 2.99414 8.63281 5C8.63281 7.00586 7.00586 8.63281 5 8.63281Z" fill="#2D3C64"></path>
+                                        <path d="M6.70605 6.23633L5.31348 5.22949V2.8125C5.31348 2.76953 5.27832 2.73438 5.23535 2.73438H4.76563C4.72266 2.73438 4.6875 2.76953 4.6875 2.8125V5.50195C4.6875 5.52734 4.69922 5.55078 4.71973 5.56543L6.33496 6.74317C6.37012 6.76856 6.41895 6.76074 6.44434 6.72656L6.72363 6.3457C6.74902 6.30957 6.74121 6.26074 6.70605 6.23633Z" fill="#2D3C64"></path>
+                                    </g>
+                                </svg>
+                                Today, July 12, 2019, 11:36 AM
+                            </p>
+                        </div>
+                        <div class="signal__content">
+                            <h3 class="signal__title">Distribution Request Processed</h3>
+                            <p class="signal__text">Your saved portfolio for Client X(Mr Smith) has been waiting for more than 14 days. This portfolio will be automatically deletsd after 15 days unless it is refreshed or executed </p>
+                        </div>
+                        <div class="signal__footer">
+                            <div class="author">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.833333 10C0.833333 10 0 10 0 9.16667C0 8.33333 0.833333 5.83333 5 5.83333C9.16667 5.83333 10 8.33333 10 9.16667C10 10 9.16667 10 9.16667 10H0.833333ZM5 5C5.66304 5 6.29893 4.73661 6.76777 4.26777C7.23661 3.79893 7.5 3.16304 7.5 2.5C7.5 1.83696 7.23661 1.20107 6.76777 0.732233C6.29893 0.263392 5.66304 0 5 0C4.33696 0 3.70107 0.263392 3.23223 0.732233C2.76339 1.20107 2.5 1.83696 2.5 2.5C2.5 3.16304 2.76339 3.79893 3.23223 4.26777C3.70107 4.73661 4.33696 5 5 5V5Z" fill="#A5A8C3"></path>
+                                </svg>
+                                Craig Gordon
+                            </div>
+                            <div class="d-flex signal__bottom align-items-center justify-content-between">
+                                <div class="signal__note">
+                                    <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="7" height="8" rx="1" fill="#A5A8C3"></rect>
+                                    </svg>
+                                    Portfolio: Craig Gordon Investment Portfolio
+                                </div>
+                                <div class="signal-bottom__buttons">
+                                    <button class="btn_off already-read">Прочитано</button>
+                                    <a href="#" class="open-potfolio">Открыть портфель</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,1128 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-white scrolling-navbar">
+            <div class="container-fluid">
+                <div class="navbar-top d-flex align-items-center justify-content-between w-100">
+                    <a href="/" class="navbar-brand waves-effect">Клиенты</a>
+                    <a href="#" class="bell waves-effect modal-notify-btn" data-mdb-toggle="modal" data-mdb-target="#notificationsModal">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification">3</span>
+                    </a>
+                </div>
+                <div class="navbar-bottom d-flex align-items-center w-100">
+                    <a href="clients.html" class="back">Назад</a>
+                    <button class="btn_off edit ml-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5999 21.6H20.3999C20.7182 21.6 21.0234 21.7264 21.2484 21.9515C21.4735 22.1765 21.5999 22.4817 21.5999 22.8C21.5999 23.1183 21.4735 23.4235 21.2484 23.6485C21.0234 23.8736 20.7182 24 20.3999 24H3.5999C3.28164 24 2.97642 23.8736 2.75137 23.6485C2.52633 23.4235 2.3999 23.1183 2.3999 22.8C2.3999 22.4817 2.52633 22.1765 2.75137 21.9515C2.97642 21.7264 3.28164 21.6 3.5999 21.6ZM2.3999 15.6L14.3999 3.6L17.9999 7.2L5.9999 19.2H2.3999V15.6ZM15.5999 2.4L17.9999 0L21.5999 3.6L19.1987 6.0012L15.5999 2.4Z" fill="#0068FC" />
+                        </svg>
+                    </button>
+                    <button class="btn_off download-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7 1.20019L7.19995 6.82519L10.575 6.82519L10.575 14.7002L12.825 14.7002L12.825 6.82519L16.2 6.82519L11.7 1.20019Z" fill="#0068FC" />
+                            <path d="M2.25 20.1667L20.25 20.1667L20.25 12L22.5 12L22.5 20.1667C22.5 21.4535 21.4909 22.5 20.25 22.5L2.25 22.5C1.00913 22.5 6.363e-07 21.4535 5.49685e-07 20.1667L0 12L2.25 12L2.25 20.1667Z" fill="#0068FC" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-primary history-transactions">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 2.5H4.375V5.625H6.875V5H5V2.5Z" fill="white" />
+                            <path d="M10 4.375V1.875L9.3125 2.5625C8.5 1 6.875 0 5 0C2.25 0 0 2.25 0 5C0 7.75 2.25 10 5 10C6.5 10 7.875 9.3125 8.75 8.25L7.8125 7.4375C7.125 8.25 6.125 8.75 5 8.75C2.9375 8.75 1.25 7.0625 1.25 5C1.25 2.9375 2.9375 1.25 5 1.25C6.5 1.25 7.8125 2.1875 8.4375 3.4375L7.5 4.375H10Z" fill="white" />
+                        </svg>
+                        <span>История сделок</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        {% include 'menu.html' %}
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="row fadeIn">
+                <div class="col-md-4">
+                    <div class="card portfolio-info-card">
+                        <div class="card-header">
+                            <p class="big-text" id="changeNameField">{{ client.name }}</p>
+                            <div class="d-flex align-items-center portfolio-info-card__details">
+                                <span class="badge bg-success badge-edited">Отслеживать</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="stroke d-flex align-items-center">
+                                <p class="srtoke__title">Тип портфеля</p>
+                                <p class="srtoke__info">Инвестиционный</p>
+                            </div>
+                            <div class="stroke d-flex align-items-center">
+                                <p class="srtoke__title">Фокус портфеля</p>
+                                <p class="srtoke__info">Целевая стоимость</p>
+                            </div>
+                            <div class="stroke d-flex align-items-center">
+                                <p class="srtoke__title">Портфельная стратегия</p>
+                                <p class="srtoke__info">По умолчанию</p>
+                            </div>
+                            <div class="stroke d-flex align-items-center">
+                                <p class="srtoke__title">Количество позиций</p>
+                                <p class="srtoke__info">25</p>
+                            </div>
+                            <div class="stroke d-flex align-items-center">
+                                <p class="srtoke__title">Инвестиционный горизонт</p>
+                                <p class="srtoke__info">25 лет</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card target-cost-card target-cost-card_2">
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <p class="small-heading">Доходность</p>
+                                <p class="huge-text ml-auto">4,5%</p>
+                            </div>
+                            <div class="d-flex align-items-center target-cost-card__header-bottom">
+                                <div class="profitability-rating ml-auto">
+                                    <span class="profitability-rating__top">YTD $253.25</span>
+                                    <span class="text-success d-flex align-items-center client-rating__item">
+                                        <span>0.88 % </span>
+                                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H3V5H0.5L4 0L7.5 5H5V12Z" fill="#11CDA9"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="profitability-rating profitability-rating_2">
+                                    <span class="profitability-rating__top">YTD $253.25</span>
+                                    <span class="text-success d-flex align-items-center client-rating__item">
+                                        <span>0.88 % </span>
+                                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H3V5H0.5L4 0L7.5 5H5V12Z" fill="#11CDA9"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block">
+                                <div class="target-cost-card__top d-flex align-items-center justify-content-between">
+                                    <p class="small-heading">Целевая стоимость</p>
+                                    <p class="huge-text">$ 700,000</p>
+                                </div>
+                                <p class="target-cost-card__caption text-right">35.71% to Target Value</p>
+                                <div class="progress-block">
+                                    <div class="progress-block__line">
+                                        <div class="progress-block__percent"></div>
+                                    </div>
+                                    <div class="progress-block__bottom d-flex align-items-center justify-content-between">
+                                        <p class="target-cost-card__caption">Beginning Value</p>
+                                        <p class="target-cost-card__caption">$ 250.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-block risk-progress">
+                                <div class="target-cost-card__top d-flex align-items-center justify-content-between">
+                                    <p class="small-heading">Риск профиль</p>
+                                    <p class="huge-text">74%</p>
+                                </div>
+                                <div class="progress-block">
+                                    <div class="progress-block__line">
+                                        <div class="progress-block__percent"></div>
+                                    </div>
+                                    <div class="progress-block__bottom d-flex align-items-center justify-content-between">
+                                        <p class="target-cost-card__caption">SP 500</p>
+                                        <p class="target-cost-card__caption">73%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card odds odds_2">
+                        <div class="card-body">
+                            <ul class="odds-list">
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">коэф. Шарпа</p>
+                                    <p class="odds-list__odd">1.941</p>
+                                </li>
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">коэф. Сортино</p>
+                                    <p class="odds-list__odd">3.256</p>
+                                </li>
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">коэф. Бэта</p>
+                                    <p class="odds-list__odd">0.62</p>
+                                </li>
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">Корреляция с S&amp;P 500</p>
+                                    <p class="odds-list__odd">91.44%</p>
+                                </li>
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">Estimated Annual Fee</p>
+                                    <p class="odds-list__odd">0.35%</p>
+                                </li>
+                                <li class="odds-list__item d-flex align-items-center justify-content-between">
+                                    <p class="odds-list__main">Dividend Yield</p>
+                                    <p class="odds-list__odd">0.00%</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 blok-grower">
+                    <div class="card profit-graph flex-grow-100">
+                        <div class="card-header d-flex align-items-center">
+                            <p class="card-title">
+                                График доходности
+                            </p>
+                            <div class="dropdown ml-auto dropdown_blue dropdown-add-graph dropdown-add-graph_2">
+                                <button class="signals__sort-btn dropdown-toggle weight-normal" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Russell 3000(WV)
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L7 7L13 1" stroke="#2E364A" stroke-width="2" />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="sdropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">1</a></li>
+                                    <li><a class="dropdown-item" href="#">2</a></li>
+                                    <li><a class="dropdown-item" href="#">3</a></li>
+                                </ul>
+                            </div>
+                            <ul class="nav nav-tabs" id="forecastTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link waves-effect tabBacktest-1" id="tabBacktest" data-mdb-toggle="tab" href="#tabBacktestContent" role="tab" aria-controls="tabBacktestContent" aria-selected="true">Бэктест</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link waves-effect active tabSimulation-1" id="tabSimulation" data-mdb-toggle="tab" href="#tabSimulationContent" role="tab" aria-controls="tabSimulationContent" aria-selected="false">Симуляция Монте-Карло</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="forecastTabsContent">
+                                <div class="tab-pane fade" id="tabBacktestContent" role="tabpanel" aria-labelledby="tabBacktestContent">
+                                    <div id="chart-monte" style="width: 100%; height: 100%;"></div>
+                                </div>
+                                <div class="tab-pane fade show active" id="tabSimulationContent" role="tabpanel" aria-labelledby="tabSimulationContent">
+                                    <div id="chart-monte-2" style="width: 100%; height: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card distribution card_mt">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                            <p class="card-title">Распределение</p>
+                            <ul class="nav nav-tabs" id="distributionTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link waves-effect" id="tabSectors" data-mdb-toggle="tab" href="#tabSectorsContent" role="tab" aria-controls="tabSectorsContent" aria-selected="true">Сектора</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link waves-effect active" id="tabActives" data-mdb-toggle="tab" href="#tabActivesContent" role="tab" aria-controls="tabActivesContent" aria-selected="false">Активы</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="distributionTabsContent">
+                                <div class="tab-pane fade" id="tabSectorsContent" role="tabpanel" aria-labelledby="tabSectorsContent">
+                                    <div class="graph-inner d-flex justify-content-between align-items-center">
+                                        <div class="canvas-wrapper">
+                                            <!-- <canvas id="distributionGraph2" width="190" height="190"></canvas> -->
+                                            <div id="donutChart"></div>
+                                        </div>
+                                        <div class="graph-options scrollbar-inner">
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Cash</p>
+                                                    <p class="target-cost-card__caption">3,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">US Equities</p>
+                                                    <p class="target-cost-card__caption">40,01%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">International Equeties</p>
+                                                    <p class="target-cost-card__caption">29,99%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
+                                                    <p class="target-cost-card__caption">26,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
+                                                    <p class="target-cost-card__caption">26,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show active" id="tabActivesContent" role="tabpanel" aria-labelledby="tabActivesContent">
+                                    <div class="graph-inner d-flex justify-content-between align-items-center">
+                                        <div class="canvas-wrapper">
+                                            <!-- <canvas id="distributionGraph2" width="190" height="190"></canvas> -->
+                                            <div id="donutChart2"></div>
+                                        </div>
+                                        <div class="graph-options scrollbar-inner">
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Cash</p>
+                                                    <p class="target-cost-card__caption">3,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">US Equities</p>
+                                                    <p class="target-cost-card__caption">40,01%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">International Equeties</p>
+                                                    <p class="target-cost-card__caption">29,99%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
+                                                    <p class="target-cost-card__caption">26,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="progress-block">
+                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
+                                                    <p class="target-cost-card__caption">26,50%</p>
+                                                </div>
+                                                <div class="progress-block__line">
+                                                    <div class="progress-block__percent progress-block__percent_4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row fadeIn row_mt">
+                <div class="col-md-12">
+                    <div class="card analytics">
+                        <div class="card-header">
+                            <p class="card-title">Аналитика портфеля</p>
+                        </div>
+                        <div class="card-body d-flex align-items-start justify-content-between">
+                            <div class="analytics__block">
+                                <p class="analytics__heading">Распределение активов</p>
+                                <p class="analytics__text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            </div>
+                            <div class="analytics__block">
+                                <p class="analytics__heading">Разбивка по секторам</p>
+                                <p class="analytics__text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            </div>
+                            <div class="analytics__block">
+                                <p class="analytics__heading">Фокус портфеля</p>
+                                <p class="analytics__text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row fadeIn row_mt">
+                <div class="col-md-12">
+                    <div class="card fonds">
+                        <div class="card-header">
+                            <p class="card-title">Фонды денежного рынка и их эквиваленты</p>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-view">
+                                <thead>
+                                    <tr>
+                                        <th>Тикер</th>
+                                        <th>Наименование</th>
+                                        <th>Сектор</th>
+                                        <th>Количество</th>
+                                        <th>Цена</th>
+                                        <th>Доля</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row fadeIn row_mt">
+                <div class="col-md-12">
+                    <div class="card fonds">
+                        <div class="card-header">
+                            <p class="card-title">Акции</p>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-view">
+                                <thead>
+                                    <tr>
+                                        <th>Тикер</th>
+                                        <th>Наименование</th>
+                                        <th>Сектор</th>
+                                        <th>Количество</th>
+                                        <th>Цена</th>
+                                        <th>Доля</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row fadeIn row_mt">
+                <div class="col-md-12">
+                    <div class="card fonds">
+                        <div class="card-header">
+                            <p class="card-title">ETF</p>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-view">
+                                <thead>
+                                    <tr>
+                                        <th>Тикер</th>
+                                        <th>Наименование</th>
+                                        <th>Сектор</th>
+                                        <th>Количество</th>
+                                        <th>Цена</th>
+                                        <th>Доля</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr>
+                                    <!--  <tr>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>Name</td>
+                                        <td>7.541.0</td>
+                                        <td>$ 152,54</td>
+                                        <td>75%</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modals -->
+    <div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-this" data-mdb-dismiss="modal" aria-label="Close">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L1.70711 0.292893ZM16.2929 17.7071C16.6834 18.0976 17.3166 18.0976 17.7071 17.7071C18.0976 17.3166 18.0976 16.6834 17.7071 16.2929L16.2929 17.7071ZM17.7071 1.70711C18.0976 1.31658 18.0976 0.683417 17.7071 0.292893C17.3166 -0.0976311 16.6834 -0.0976311 16.2929 0.292893L17.7071 1.70711ZM0.292893 16.2929C-0.0976311 16.6834 -0.0976311 17.3166 0.292893 17.7071C0.683417 18.0976 1.31658 18.0976 1.70711 17.7071L0.292893 16.2929ZM0.292893 1.70711L16.2929 17.7071L17.7071 16.2929L1.70711 0.292893L0.292893 1.70711ZM16.2929 0.292893L0.292893 16.2929L1.70711 17.7071L17.7071 1.70711L16.2929 0.292893Z" fill="#2E364A" />
+                    </svg>
+                </div>
+                <div class="modal-header">
+                    <div class="d-flex align-items-center">
+                        <h3 class="card-title">Уведомления</h3>
+                        <div class="dropdown ml-auto modal__dropdown">
+                            <button class="signals__sort-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                Сортировать
+                                <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5.5 6L7.75 3.5L10 1" stroke="#2E364A" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="nav nav-tabs modal__tabs" id="ex1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Новый</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect active" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Все</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link waves-effect" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Прочитаный</a>
+                        </li>
+                    </ul>
+                    <div class="long-search">
+                        <input type="search" id="form1" class="form-control" placeholder="Выбрать">
+                        <svg class="search-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14L11.0093 11.004L14 14ZM12.6666 7.00001C12.6666 8.5029 12.0696 9.94424 11.0069 11.0069C9.94421 12.0697 8.50287 12.6667 6.99998 12.6667C5.49709 12.6667 4.05575 12.0697 2.99304 11.0069C1.93034 9.94424 1.33331 8.5029 1.33331 7.00001C1.33331 5.49712 1.93034 4.05578 2.99304 2.99307C4.05575 1.93037 5.49709 1.33334 6.99998 1.33334C8.50287 1.33334 9.94421 1.93037 11.0069 2.99307C12.0696 4.05578 12.6666 5.49712 12.6666 7.00001V7.00001Z" stroke="#2E364A" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <p class="signals__date modals-notify__date">October 03, 2019 </p>
+                </div>
+                <div class="modal-body">
+                    <div class="signal signal-new">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="badge bg-danger">
+                                Новый
+                            </div>
+                            <p class="signal__date">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M5 0.625C2.58398 0.625 0.625 2.58398 0.625 5C0.625 7.41602 2.58398 9.375 5 9.375C7.41602 9.375 9.375 7.41602 9.375 5C9.375 2.58398 7.41602 0.625 5 0.625ZM5 8.63281C2.99414 8.63281 1.36719 7.00586 1.36719 5C1.36719 2.99414 2.99414 1.36719 5 1.36719C7.00586 1.36719 8.63281 2.99414 8.63281 5C8.63281 7.00586 7.00586 8.63281 5 8.63281Z" fill="#2D3C64"></path>
+                                        <path d="M6.70605 6.23633L5.31348 5.22949V2.8125C5.31348 2.76953 5.27832 2.73438 5.23535 2.73438H4.76563C4.72266 2.73438 4.6875 2.76953 4.6875 2.8125V5.50195C4.6875 5.52734 4.69922 5.55078 4.71973 5.56543L6.33496 6.74317C6.37012 6.76856 6.41895 6.76074 6.44434 6.72656L6.72363 6.3457C6.74902 6.30957 6.74121 6.26074 6.70605 6.23633Z" fill="#2D3C64"></path>
+                                    </g>
+                                </svg>
+                                Today, July 12, 2019, 11:36 AM
+                            </p>
+                        </div>
+                        <div class="signal__content">
+                            <h3 class="signal__title">Distribution Request Processed</h3>
+                            <p class="signal__text">Your saved portfolio for Client X(Mr Smith) has been waiting for more than 14 days. This portfolio will be automatically deletsd after 15 days unless it is refreshed or executed </p>
+                        </div>
+                        <div class="signal__footer">
+                            <div class="author">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.833333 10C0.833333 10 0 10 0 9.16667C0 8.33333 0.833333 5.83333 5 5.83333C9.16667 5.83333 10 8.33333 10 9.16667C10 10 9.16667 10 9.16667 10H0.833333ZM5 5C5.66304 5 6.29893 4.73661 6.76777 4.26777C7.23661 3.79893 7.5 3.16304 7.5 2.5C7.5 1.83696 7.23661 1.20107 6.76777 0.732233C6.29893 0.263392 5.66304 0 5 0C4.33696 0 3.70107 0.263392 3.23223 0.732233C2.76339 1.20107 2.5 1.83696 2.5 2.5C2.5 3.16304 2.76339 3.79893 3.23223 4.26777C3.70107 4.73661 4.33696 5 5 5V5Z" fill="#A5A8C3"></path>
+                                </svg>
+                                Craig Gordon
+                            </div>
+                            <div class="d-flex signal__bottom align-items-center justify-content-between">
+                                <div class="signal__note">
+                                    <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="7" height="8" rx="1" fill="#A5A8C3"></rect>
+                                    </svg>
+                                    Portfolio: Craig Gordon Investment Portfolio
+                                </div>
+                                <div class="signal-bottom__buttons">
+                                    <button class="btn_off already-read">Прочитано</button>
+                                    <a href="#" class="open-potfolio">Открыть портфель</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signal signal-new">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="badge bg-danger">
+                                Новый
+                            </div>
+                            <p class="signal__date">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M5 0.625C2.58398 0.625 0.625 2.58398 0.625 5C0.625 7.41602 2.58398 9.375 5 9.375C7.41602 9.375 9.375 7.41602 9.375 5C9.375 2.58398 7.41602 0.625 5 0.625ZM5 8.63281C2.99414 8.63281 1.36719 7.00586 1.36719 5C1.36719 2.99414 2.99414 1.36719 5 1.36719C7.00586 1.36719 8.63281 2.99414 8.63281 5C8.63281 7.00586 7.00586 8.63281 5 8.63281Z" fill="#2D3C64"></path>
+                                        <path d="M6.70605 6.23633L5.31348 5.22949V2.8125C5.31348 2.76953 5.27832 2.73438 5.23535 2.73438H4.76563C4.72266 2.73438 4.6875 2.76953 4.6875 2.8125V5.50195C4.6875 5.52734 4.69922 5.55078 4.71973 5.56543L6.33496 6.74317C6.37012 6.76856 6.41895 6.76074 6.44434 6.72656L6.72363 6.3457C6.74902 6.30957 6.74121 6.26074 6.70605 6.23633Z" fill="#2D3C64"></path>
+                                    </g>
+                                </svg>
+                                Today, July 12, 2019, 11:36 AM
+                            </p>
+                        </div>
+                        <div class="signal__content">
+                            <h3 class="signal__title">Distribution Request Processed</h3>
+                            <p class="signal__text">Your saved portfolio for Client X(Mr Smith) has been waiting for more than 14 days. This portfolio will be automatically deletsd after 15 days unless it is refreshed or executed </p>
+                        </div>
+                        <div class="signal__footer">
+                            <div class="author">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.833333 10C0.833333 10 0 10 0 9.16667C0 8.33333 0.833333 5.83333 5 5.83333C9.16667 5.83333 10 8.33333 10 9.16667C10 10 9.16667 10 9.16667 10H0.833333ZM5 5C5.66304 5 6.29893 4.73661 6.76777 4.26777C7.23661 3.79893 7.5 3.16304 7.5 2.5C7.5 1.83696 7.23661 1.20107 6.76777 0.732233C6.29893 0.263392 5.66304 0 5 0C4.33696 0 3.70107 0.263392 3.23223 0.732233C2.76339 1.20107 2.5 1.83696 2.5 2.5C2.5 3.16304 2.76339 3.79893 3.23223 4.26777C3.70107 4.73661 4.33696 5 5 5V5Z" fill="#A5A8C3"></path>
+                                </svg>
+                                Craig Gordon
+                            </div>
+                            <div class="d-flex signal__bottom align-items-center justify-content-between">
+                                <div class="signal__note">
+                                    <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="7" height="8" rx="1" fill="#A5A8C3"></rect>
+                                    </svg>
+                                    Portfolio: Craig Gordon Investment Portfolio
+                                </div>
+                                <div class="signal-bottom__buttons">
+                                    <button class="btn_off already-read">Прочитано</button>
+                                    <a href="#" class="open-potfolio">Открыть портфель</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End your project here-->
+    <!-- MDB -->
+    <script type="text/javascript" src="{% static 'js1/mdb.min.js' %}"></script>
+    <script src="{% static 'js1/wow.min.js' %}"></script>
+    <script src="{% static 'js1/billboard.pkgd.js' %}"></script>
+    <!-- Custom scripts -->
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-stock.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+    <script src="{% static 'js1/jquery.scrollbar.min.js' %}"></script>
+    <script src="{% static 'js1/dji-daily-short.js' %}"></script>
+    <script>
+    new WOW().init()
+    </script>
+    <script>
+    var chart = bb.generate({
+
+        size: {
+            height: 250,
+            width: 250
+        },
+        data: {
+            columns: [
+                ["data1", 3.5],
+                ["data2", 40.01],
+                ["data3", 29.99],
+                ["data4", 26.50],
+            ],
+            type: "donut",
+            colors: {
+                data1: "#0633BE",
+                data2: "#3868CE",
+                data3: "#4697FE",
+                data4: "#02BFFB",
+            } // for ESM specify as: donut()
+        },
+        donut: {
+            title: false,
+            label: {
+                ratio: 1.5
+            }
+        },
+        tooltip: {
+            show: false
+        },
+        legend: {
+            show: false
+        },
+        bindto: "#donutChart"
+    });
+
+    var chart = bb.generate({
+
+        size: {
+            height: 250,
+            width: 250
+        },
+        data: {
+            columns: [
+                ["data1", 3.5],
+                ["data2", 40.01],
+                ["data3", 29.99],
+                ["data4", 26.50],
+            ],
+            type: "donut",
+            colors: {
+                data1: "#0633BE",
+                data2: "#3868CE",
+                data3: "#4697FE",
+                data4: "#02BFFB",
+            } // for ESM specify as: donut()
+        },
+        donut: {
+            title: false,
+            label: {
+                ratio: 1.5
+            }
+        },
+        tooltip: {
+            show: false
+        },
+        legend: {
+            show: false
+        },
+        bindto: "#donutChart2"
+    });
+
+    $('.dropdown-add-graph .dropdown-item').bind('click', function() {
+        // The data used in this sample can be obtained from the CDN
+        // https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv
+
+        if ($('#tabSimulation').hasClass('active')) {
+            $('#chart-monte-2').empty()
+
+            anychart.data.loadCsvFile(
+                'https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv',
+                function(data) {
+                    // create data table on loaded data
+                    var dataTable = anychart.data.table();
+                    dataTable.addData(data);
+
+                    var rangeSelector = anychart.ui.rangeSelector();
+                    var rangePicker = anychart.ui.rangePicker();
+
+
+                    var chart = anychart.stock();
+
+                    chart.padding(10, 45, 10, 10);
+                    var plot = chart.plot();
+                    var tooltip = chart.tooltip();
+
+                    var currentPlot = chart.plot();
+
+                    var scroller = chart.scroller();
+                    var currentPlot = chart.scroller();
+                    var thumbsSettings = scroller.thumbs();
+
+                    var currentScroller = chart.scroller();
+                    rangePicker.format('dd.MM.yyyy');
+                    plot.line(dataTable.mapAs({ value: 1 })).name('Sapphire');
+                    plot.line(dataTable.mapAs({ value: 3 })).name('Topaz');
+                    var mapping = dataTable.mapAs({ value: 1 });
+                    var mapping2 = dataTable.mapAs({ value: 3 });
+                    var series_1 = plot.area(mapping);
+                    var series_2 = plot.area(mapping2);
+
+
+                    // currentPlot.area(mapping);
+                    currentScroller.line(mapping);
+                    currentScroller.line(mapping2);
+                    chart.plot().legend(false)
+                    chart.plot().yAxis().orientation("right");
+                    series_2.fill(false);
+                    series_1.stroke(false);
+                    series_2.stroke('red')
+                    series_1.fill(['#E3F2FF', '#CDE5FC'], 1, 0.5, null, 1, 0.9, 0.31);
+                    tooltip.background({ corners: 2 });
+                    tooltip.fontColor('#ffffff');
+                    tooltip.fontWeight(500);
+                    tooltip.fontSize(10);
+                    thumbsSettings.enabled(false)
+                    rangePicker.fromLabelText('от');
+                    rangePicker.toLabelText('до');
+
+                    rangeSelector.ranges([{
+                        'type': "Unit",
+                        'unit': "Day",
+                        'count': 30,
+                        'anchor': "first-date",
+                        'text': "1 Month"
+                    }, {
+                        'type': "Unit",
+                        'unit': "quarter",
+                        'count': 1,
+                        'anchor': "first-date",
+                        'text': "3 Month"
+                    }, {
+                        'type': "Unit",
+                        'unit': "quarter",
+                        'count': 2,
+                        'anchor': "first-date",
+                        'text': "6 Month"
+                    }, {
+                        'type': 'ytd',
+                        'text': 'YTD'
+                    }, {
+                        'type': "Unit",
+                        'unit': "year",
+                        'count': 1,
+                        'anchor': "first-date",
+                        'text': "1 year"
+                    }, {
+                        'type': 'max',
+                        'text': 'All Time'
+                    }]);
+                    tooltip.format(function() {
+                        return 'Распределение ' + this.value
+                    });
+
+
+                    chart.title();
+                    rangePicker.render(chart);
+                    rangeSelector.render(chart);
+                    chart.container("chart-monte-2");
+                    chart.draw();
+
+                });
+        } else if ($('#tabBacktest').hasClass('active')) {
+            $('#chart-monte').empty()
+
+            anychart.data.loadCsvFile(
+                'https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv',
+                function(data) {
+                    // create data table on loaded data
+                    var dataTable = anychart.data.table();
+                    dataTable.addData(data);
+
+                    var rangeSelector = anychart.ui.rangeSelector();
+                    var rangePicker = anychart.ui.rangePicker();
+
+
+                    var chart = anychart.stock();
+
+                    chart.padding(10, 45, 10, 10);
+                    var plot = chart.plot();
+                    var tooltip = chart.tooltip();
+
+                    var currentPlot = chart.plot();
+
+                    var scroller = chart.scroller();
+                    var currentPlot = chart.scroller();
+                    var thumbsSettings = scroller.thumbs();
+
+                    var currentScroller = chart.scroller();
+                    rangePicker.format('dd.MM.yyyy');
+                    plot.line(dataTable.mapAs({ value: 1 })).name('Sapphire');
+                    plot.line(dataTable.mapAs({ value: 3 })).name('Topaz');
+                    var mapping = dataTable.mapAs({ value: 1 });
+                    var mapping2 = dataTable.mapAs({ value: 3 });
+                    var series_1 = plot.area(mapping);
+                    var series_2 = plot.area(mapping2);
+
+
+                    // currentPlot.area(mapping);
+                    currentScroller.line(mapping);
+                    currentScroller.line(mapping2);
+                    chart.plot().legend(false)
+                    chart.plot().yAxis().orientation("right");
+                    series_2.fill(false);
+                    series_1.stroke(false);
+                    series_2.stroke('red')
+                    series_1.fill(['#E3F2FF', '#CDE5FC'], 1, 0.5, null, 1, 0.9, 0.31);
+                    tooltip.background({ corners: 2 });
+                    tooltip.fontColor('#ffffff');
+                    tooltip.fontWeight(500);
+                    tooltip.fontSize(10);
+                    thumbsSettings.enabled(false)
+                    rangePicker.fromLabelText('от');
+                    rangePicker.toLabelText('до');
+
+                    rangeSelector.ranges([{
+                        'type': "Unit",
+                        'unit': "Day",
+                        'count': 30,
+                        'anchor': "first-date",
+                        'text': "1 Month"
+                    }, {
+                        'type': "Unit",
+                        'unit': "quarter",
+                        'count': 1,
+                        'anchor': "first-date",
+                        'text': "3 Month"
+                    }, {
+                        'type': "Unit",
+                        'unit': "quarter",
+                        'count': 2,
+                        'anchor': "first-date",
+                        'text': "6 Month"
+                    }, {
+                        'type': 'ytd',
+                        'text': 'YTD'
+                    }, {
+                        'type': "Unit",
+                        'unit': "year",
+                        'count': 1,
+                        'anchor': "first-date",
+                        'text': "1 year"
+                    }, {
+                        'type': 'max',
+                        'text': 'All Time'
+                    }]);
+                    tooltip.format(function() {
+                        return 'Распределение ' + this.value
+                    });
+
+
+                    chart.title();
+                    rangePicker.render(chart);
+                    rangeSelector.render(chart);
+                    chart.container("chart-monte");
+                    chart.draw();
+
+                });
+        }
+    })
+
+    anychart.data.loadCsvFile(
+        'https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv',
+        function(data) {
+            // create data table on loaded data
+            var dataTable = anychart.data.table();
+            dataTable.addData(data);
+
+            var rangeSelector = anychart.ui.rangeSelector();
+            var rangePicker = anychart.ui.rangePicker();
+
+
+            var chart = anychart.stock();
+
+            chart.padding(10, 45, 10, 10);
+            var plot = chart.plot();
+            var tooltip = chart.tooltip();
+
+            var currentPlot = chart.plot();
+
+            var scroller = chart.scroller();
+            var currentPlot = chart.scroller();
+            var thumbsSettings = scroller.thumbs();
+
+            var currentScroller = chart.scroller();
+            rangePicker.format('dd.MM.yyyy');
+            plot.line(dataTable.mapAs({ value: 1 })).name('Sapphire');
+            plot.line(dataTable.mapAs({ value: 3 })).name('Topaz');
+            var mapping = dataTable.mapAs({ value: 1 });
+            var mapping2 = dataTable.mapAs({ value: 3 });
+            var series_1 = plot.area(mapping);
+            var series_2 = plot.area(mapping2);
+
+
+            // currentPlot.area(mapping);
+            currentScroller.line(mapping);
+            currentScroller.line(mapping2);
+            chart.plot().legend(false)
+            chart.plot().yAxis().orientation("right");
+            series_2.fill(false);
+            series_1.stroke(false);
+            series_2.stroke('red')
+            series_1.fill(['#E3F2FF', '#CDE5FC'], 1, 0.5, null, 1, 0.9, 0.31);
+            tooltip.background({ corners: 2 });
+            tooltip.fontColor('#ffffff');
+            tooltip.fontWeight(500);
+            tooltip.fontSize(10);
+            thumbsSettings.enabled(false)
+            rangePicker.fromLabelText('от');
+            rangePicker.toLabelText('до');
+
+            rangeSelector.ranges([{
+                'type': "Unit",
+                'unit': "Day",
+                'count': 30,
+                'anchor': "first-date",
+                'text': "1 Month"
+            }, {
+                'type': "Unit",
+                'unit': "quarter",
+                'count': 1,
+                'anchor': "first-date",
+                'text': "3 Month"
+            }, {
+                'type': "Unit",
+                'unit': "quarter",
+                'count': 2,
+                'anchor': "first-date",
+                'text': "6 Month"
+            }, {
+                'type': 'ytd',
+                'text': 'YTD'
+            }, {
+                'type': "Unit",
+                'unit': "year",
+                'count': 1,
+                'anchor': "first-date",
+                'text': "1 year"
+            }, {
+                'type': 'max',
+                'text': 'All Time'
+            }]);
+            tooltip.format(function() {
+                return 'Распределение ' + this.value
+            });
+
+
+            chart.title();
+            rangePicker.render(chart);
+            rangeSelector.render(chart);
+            chart.container("chart-monte");
+            chart.draw();
+
+
+        });
+
+    anychart.onDocumentReady(function() {
+        // The data used in this sample can be obtained from the CDN
+        // https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv
+        anychart.data.loadCsvFile(
+            'https://cdn.anychart.com/samples/stock-general-features/displaying-data-in-millisecond/data.csv',
+            function(data) {
+                // create data table on loaded data
+                var dataTable2 = anychart.data.table();
+                dataTable2.addData(data);
+
+                // create stock chart
+                var chart2 = anychart.stock();
+
+                // set chart title
+                chart2.title(false);
+
+                chart2.plot().legend(false)
+
+                // create plot on the chart
+                var plot2 = chart2.plot(0);
+
+                // create plot series with mapped data
+                plot2.line(dataTable2.mapAs({ value: 1 })).name('Sapphire');
+                plot2.line(dataTable2.mapAs({ value: 2 })).name('Cobalt');
+                plot2.line(dataTable2.mapAs({ value: 3 })).name('Topaz');
+
+                chart2.padding(10, 45, 10, 10);
+
+                // create scroller series with mapped data
+                chart2.scroller().line(dataTable2.mapAs({ value: 1 }));
+                chart2.scroller().line(dataTable2.mapAs({ value: 2 }));
+                chart2.scroller().line(dataTable2.mapAs({ value: 3 }));
+
+                // set container id for the chart
+                chart2.container('chart-monte-2');
+                // initiate chart drawing
+                chart2.draw();
+
+                // tooltip
+
+
+
+                var tooltip = chart2.tooltip();
+
+
+                tooltip.background({ corners: 2 });
+                tooltip.fontColor('#ffffff');
+                tooltip.fontWeight(500);
+                tooltip.fontSize(10);
+
+                tooltip.format(function() {
+                    return 'Показатель ' + this.value
+                });
+
+                chart2.plot().yAxis().orientation("right");
+
+                // create range picker
+                var rangePicker2 = anychart.ui.rangePicker();
+                rangePicker2.fromLabelText('от');
+                rangePicker2.toLabelText('до');
+                rangePicker2.format('dd.MM.yyyy');
+                // init range picker
+                rangePicker2.render(chart2);
+
+                var scroller = chart2.scroller();
+                var thumbsSettings = scroller.thumbs();
+                thumbsSettings.enabled(false)
+
+                // create range selector
+                var rangeSelector2 = anychart.ui.rangeSelector();
+                rangeSelector2.ranges([{
+                    'type': "Unit",
+                    'unit': "Day",
+                    'count': 30,
+                    'anchor': "first-date",
+                    'text': "1 Month"
+                }, {
+                    'type': "Unit",
+                    'unit': "quarter",
+                    'count': 1,
+                    'anchor': "first-date",
+                    'text': "3 Month"
+                }, {
+                    'type': "Unit",
+                    'unit': "quarter",
+                    'count': 2,
+                    'anchor': "first-date",
+                    'text': "6 Month"
+                }, {
+                    'type': 'ytd',
+                    'text': 'YTD'
+                }, {
+                    'type': "Unit",
+                    'unit': "year",
+                    'count': 1,
+                    'anchor': "first-date",
+                    'text': "1 year"
+                }, {
+                    'type': 'max',
+                    'text': 'All Time'
+                }]);
+                // init range selector
+                rangeSelector2.render(chart2);
+            }
+        );
+    });
+
+    $('.scrollbar-inner').scrollbar();
+    </script>
+{% endblock %}

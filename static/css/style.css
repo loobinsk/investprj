@@ -2276,8 +2276,15 @@ input[type="checkbox"] {
     height: 686px;
 }
 
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .client-card {
+    margin-right: 20px;
     margin-bottom: 20px;
+    width: 370px;
 }
 
 .client-card:last-child {

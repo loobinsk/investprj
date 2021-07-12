@@ -5,7 +5,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='homepage'),
+    path('algoritm/', views.get_algorithm),
     path('create-portfolio/', views.create_portfolio, name='create-portfolio'),
+    path('client-delete/<pk>/', views.client_delete, name='client-delete'),
     #path('clients/', views.clients_list, name='clients'),
     path('client-overview/<pk>/', views.client_detail, name='client-overview'),
     path('client-overview/', views.clients_list, name='clients-list'),

@@ -95,5 +95,6 @@ class Stock(models.Model):
 	ticker = models.CharField(max_length=255)
 	sector = models.CharField(max_length=255)
 	quantity = models.PositiveIntegerField()
-	price = models.PositiveIntegerField()
+	cost_in_rubles = models.PositiveIntegerField()
+	cost_in_dollars = models.PositiveIntegerField()
 	share = models.PositiveIntegerField(blank=True)

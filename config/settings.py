@@ -10,7 +10,7 @@ LOGOUT_URL = reverse_lazy('logout')
 
 SECRET_KEY = 'fsv&g8hu0l59_5*8q136^@ph58j-o%h2spoul42$4!=2z##m%*'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.77']
 
 
 INSTALLED_APPS = [

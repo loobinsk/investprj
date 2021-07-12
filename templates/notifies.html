@@ -194,7 +194,7 @@
                                             <circle cx="10.5" cy="12.2002" r="4" fill="#0068FC" stroke="white" />
                                             <path d="M8 12.2002H13M10.5 9.7002V14.7002" stroke="white" />
                                         </svg>
-                                        Добавить портфель
+                                        <a href="{% url 'create-portfolio' %}">Добавить портфель</a>
                                     </button>
                                 </div>
                                 <div class="card-body">
@@ -236,8 +236,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for i in portfolios %}
                                             <tr>
-                                                <td>Портфель 1</td>
+                                                <td>{{ i.name }}</td>
                                                 <td>
                                                     <span class="text-success d-flex align-items-center client-rating__item">
                                                         <span class="ml-auto">1.88 % </span>
@@ -246,9 +247,9 @@
                                                         </svg>
                                                     </span>
                                                 </td>
-                                                <td>10%</td>
-                                                <td>$150</td>
-                                                <td>$1 542</td>
+                                                <td>{{ i.investment_horizon }}%</td>
+                                                <td>${{ i.initial_investment_amount }}</td>
+                                                <td>${{ i.investment_horizon }}</td>
                                                 <td>
                                                     <span class="badge bg-danger">5</span>
                                                 </td>
@@ -270,6 +271,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

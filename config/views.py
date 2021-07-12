@@ -10,7 +10,13 @@ from portfolio.models import Portfolio, Stock
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as logout_system
 from django.contrib.auth.models import User
+from yf.test import test_portfolio
+from yf import YFinance
 
+
+def get_algorithm(request):
+	a = test_portfolio.PortfolioTestCase()
+	return HttpResponse('все гуд')
 
 
 @login_required
@@ -48,10 +54,12 @@ def clients_list(request):
 
 
 def client_detail(request, pk):
-	client = get_object_or_404(Client, id=pk)
+	client = get_object_or_404(Client, pk=pk)
+	portfolios = Portfolio.objects.filter(client=client)
 	template = 'notifies.html'
 	context = {
 		'client':client,
+		'portfolios': portfolios,
 	}
 	return render(request, template, context)
 
@@ -103,6 +111,13 @@ def portfolio_view(request, pk):
 	return render(request, template, context)
 
 
+def client_change(request, pk):
+	return redirect('client-overview', pk)
+
+def client_delete(request, pk):
+	client = Client.objects.get(pk=pk)
+	client.delete()
+	return redirect('clients-list')
 
 
 
@@ -187,6 +202,7 @@ def create_portfolio(request):
 	return render(request, template, context)
 
 def register(request):
+	error = ''
 	if request.method == 'POST':
 		first_name = request.POST['first_name']
 		email = request.POST['email']

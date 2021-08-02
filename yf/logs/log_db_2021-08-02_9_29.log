@@ -1,0 +1,9 @@
+[INFO] - 2021-08-02 09:29:10,737 - 20 tickers got from the DB
+[INFO] - 2021-08-02 05:29:12,216 - The database is cleaned
+[INFO] - 2021-08-02 05:29:12,280 - 0 tickers got from the DB
+[INFO] - 2021-08-02 05:29:12,280 - All tickers are deleted from the DB
+[INFO] - 2021-08-02 05:29:12,347 - 509 tickers inserted in DB
+[INFO] - 2021-08-02 05:29:12,348 - 508 tickers got from the DB
+[INFO] - 2021-08-02 05:29:12,349 - Reading data from Yahoo Finance
+[INFO] - 2021-08-02 05:30:56,634 - YFinance data load call. Start date: 2021-07-23. Finish date: 2021-08-02
+[INFO] - 2021-08-02 05:30:56,665 - Inserting data into the DB

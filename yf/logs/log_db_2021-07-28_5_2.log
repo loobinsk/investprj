@@ -1,0 +1,19 @@
+[INFO] - 2021-07-28 05:02:08,357 - 512 tickers got from the DB
+[INFO] - 2021-07-28 05:02:08,547 - The database is cleaned
+[INFO] - 2021-07-28 05:02:08,604 - 0 tickers got from the DB
+[INFO] - 2021-07-28 05:02:08,604 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 05:02:08,678 - 20 tickers inserted in DB
+[INFO] - 2021-07-28 05:02:08,679 - 20 tickers got from the DB
+[INFO] - 2021-07-28 05:02:08,679 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 05:02:14,472 - YFinance data load call. Start date: 2021-07-26. Finish date: 2021-07-28
+[INFO] - 2021-07-28 05:02:14,473 - Inserting data into the DB
+[ERROR] - 2021-07-28 05:02:14,474 - Error while loading data using YFinance. 'AFLT.ME'
+[INFO] - 2021-07-28 05:02:45,927 - 20 tickers got from the DB
+[INFO] - 2021-07-28 05:02:46,249 - The database is cleaned
+[INFO] - 2021-07-28 05:02:46,324 - 0 tickers got from the DB
+[INFO] - 2021-07-28 05:02:46,324 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 05:02:46,372 - 20 tickers inserted in DB
+[INFO] - 2021-07-28 05:02:46,372 - 20 tickers got from the DB
+[INFO] - 2021-07-28 05:02:46,372 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 05:02:54,461 - YFinance data load call. Start date: 2019-08-08. Finish date: 2021-07-28
+[INFO] - 2021-07-28 05:02:54,463 - Inserting data into the DB

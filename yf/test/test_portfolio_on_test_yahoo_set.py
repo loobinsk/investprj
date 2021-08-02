@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from app.portfolio import Portfolio
+from portfolio import Portfolio
 from random import randrange
 import numpy as np
 
@@ -25,12 +25,20 @@ class PortfolioTestCase(unittest.TestCase):
 
     def test_shares_generator(self):
         self.portfolio.exclude_loss()
-        self.assertTrue(np.all(self.portfolio.generate_shares(strategy='growth') < 0.25))
+        a = self.assertTrue(np.all(self.portfolio.generate_shares(strategy='growth') < 0.25))
+        print(a)
         self.assertRaises(RuntimeError, self.portfolio.generate_shares)
         self.assertRaises(ValueError, self.portfolio.generate_shares, 'foo')
+
 
     def test_portfolios_generator(self):
         self.portfolio.exclude_loss()
         result = self.portfolio.generate_portfolios(5, strategy='growth', risk=0.1)
         for shares_set in result:
             self.assertAlmostEqual(1, sum(shares_set), 2)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+

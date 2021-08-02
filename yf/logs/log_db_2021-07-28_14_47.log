@@ -1,0 +1,30 @@
+[INFO] - 2021-07-28 14:47:41,148 - 510 tickers got from the DB
+[INFO] - 2021-07-28 14:48:12,352 - 510 tickers got from the DB
+[INFO] - 2021-07-28 14:48:12,529 - The database is cleaned
+[INFO] - 2021-07-28 14:48:12,585 - 0 tickers got from the DB
+[INFO] - 2021-07-28 14:48:12,586 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 14:48:12,635 - 12 tickers inserted in DB
+[INFO] - 2021-07-28 14:48:12,635 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:48:12,635 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 14:48:14,635 - YFinance data load call. Start date: 2021-07-18. Finish date: 2021-07-28
+[INFO] - 2021-07-28 14:48:14,637 - Inserting data into the DB
+[INFO] - 2021-07-28 14:49:06,410 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:49:21,265 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:49:21,502 - The database is cleaned
+[INFO] - 2021-07-28 14:49:21,552 - 0 tickers got from the DB
+[INFO] - 2021-07-28 14:49:21,552 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 14:49:21,609 - 12 tickers inserted in DB
+[INFO] - 2021-07-28 14:49:21,609 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:49:21,609 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 14:49:23,383 - YFinance data load call. Start date: 2021-07-18. Finish date: 2021-07-28
+[INFO] - 2021-07-28 14:49:23,385 - Inserting data into the DB
+[INFO] - 2021-07-28 14:50:24,214 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:50:38,243 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:50:38,375 - The database is cleaned
+[INFO] - 2021-07-28 14:50:38,423 - 0 tickers got from the DB
+[INFO] - 2021-07-28 14:50:38,423 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 14:50:38,481 - 12 tickers inserted in DB
+[INFO] - 2021-07-28 14:50:38,481 - 12 tickers got from the DB
+[INFO] - 2021-07-28 14:50:38,481 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 14:50:40,208 - YFinance data load call. Start date: 2021-07-18. Finish date: 2021-07-28
+[INFO] - 2021-07-28 14:50:40,209 - Inserting data into the DB

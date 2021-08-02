@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from app import YFinance
+from .. import YFinance
 
 unittest.TestLoader.sortTestMethodsUsing = None
 

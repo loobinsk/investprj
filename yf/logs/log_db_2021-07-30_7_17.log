@@ -1,0 +1,37 @@
+[INFO] - 2021-07-30 07:17:22,615 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:26,610 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:26,610 - 508 tickers got from the DB
+[ERROR] - 2021-07-30 07:17:27,622 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:17:27,622 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:17:31,617 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:17:31,617 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:17:32,629 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-30 07:17:32,629 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-30 07:17:36,624 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-30 07:17:36,624 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-30 07:17:37,638 - Tickers are not inserted in DB. Error message database is locked
+[ERROR] - 2021-07-30 07:17:37,638 - Tickers are not inserted in DB. Error message database is locked
+[INFO] - 2021-07-30 07:17:37,639 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:37,639 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:37,639 - Reading data from Yahoo Finance
+[INFO] - 2021-07-30 07:17:37,639 - Reading data from Yahoo Finance
+[ERROR] - 2021-07-30 07:17:41,635 - Tickers are not inserted in DB. Error message database is locked
+[ERROR] - 2021-07-30 07:17:41,635 - Tickers are not inserted in DB. Error message database is locked
+[INFO] - 2021-07-30 07:17:41,636 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:41,636 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:17:41,637 - Reading data from Yahoo Finance
+[INFO] - 2021-07-30 07:17:41,637 - Reading data from Yahoo Finance
+[INFO] - 2021-07-30 07:19:17,399 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:19:17,399 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:19:55,706 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,706 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,763 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,763 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,785 - Inserting data into the DB
+[INFO] - 2021-07-30 07:19:55,785 - Inserting data into the DB
+[ERROR] - 2021-07-30 07:19:55,840 - Error while writing to the DB. database is locked
+[ERROR] - 2021-07-30 07:19:55,840 - Error while writing to the DB. database is locked
+[INFO] - 2021-07-30 07:19:55,844 - Inserting data into the DB
+[INFO] - 2021-07-30 07:19:55,844 - Inserting data into the DB
+[ERROR] - 2021-07-30 07:19:55,901 - Error while writing to the DB. database is locked
+[ERROR] - 2021-07-30 07:19:55,901 - Error while writing to the DB. database is locked

@@ -11,7 +11,7 @@ from random import randrange
 
 
 class Portfolio:
-    ITERATION_LIMIT = 100
+    ITERATION_LIMIT = 1000
     GENERATED_PORTFOLIOS = 100
 
     def __init__(self):
@@ -25,7 +25,6 @@ class Portfolio:
         try:
             self.conn = sqlite3.connect(read_db_path())
         except Exception as ex:
-            print(ex)
             raise IOError
         pass
 
@@ -43,9 +42,11 @@ class Portfolio:
         """
         try:
             self._df = pd.read_sql_query("SELECT * from ticker_values", self.conn)
+            self._df.drop(columns=['id'], inplace=True)
+            self._df = self._df.pivot_table(index=['value_date'], columns=['ticker'], values=['ticker_value']).copy()
+            self._df.columns = self._df.columns.droplevel()
             return True
         except Exception as ex:
-            print(ex)
             return False
 
     def load_test_data(self):
@@ -59,7 +60,6 @@ class Portfolio:
             self._df = pd.read_pickle(cf_path)
             return True
         except Exception as ex:
-            print(ex)
             return False
 
     def make_test_data(self):
@@ -174,11 +174,15 @@ class Portfolio:
         :param strategy: None(default)/growth/diversification
         :return: NumPy array with shares
         """
-        if strategy is None:
+
+        if strategy == 0:
+            min_limit = 0.06
             high_limit = 0.15
-        elif strategy == 'growth':
+        elif strategy == 1:
+            min_limit = 0.10
             high_limit = 0.25
-        elif strategy == 'diversification':
+        elif strategy == 2:
+            min_limit = 0.02
             high_limit = 0.07
         else:
             raise ValueError('Incorrect strategy type')
@@ -186,8 +190,9 @@ class Portfolio:
         shares = np.zeros(self.portfolio_size)
         shares[0] = 1
         count = 0
+
         while np.any(shares > high_limit):
-            shares = [randrange(0, int(high_limit * 100)) for _ in range(self.portfolio_size)]
+            shares = [randrange(int(min_limit*100), int(high_limit*100)) for _ in range(self.portfolio_size)]
             shares = shares / np.linalg.norm(shares, ord=1)
             count += 1
             if count > self.ITERATION_LIMIT:

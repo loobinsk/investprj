@@ -1,8 +1,42 @@
-{% extends 'index.html' %}
+{% load humanize %}
 {% load static %}
 
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=1300">
+    <title>Dashboard</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="{% static 'img/mdb-favicon.ico' %}" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css'%} " />
+    <link rel="stylesheet" href="{% static 'css/billboard.css' %}">
+    <!-- Include jQuery -->
+    <script type="text/javascript" src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.anychart.com/releases/8.10.0/css/anychart-ui.min.css" />
+    <link rel="stylesheet" href="{% static 'css/jquery.scrollbar.css' %}">
+    <style>
+        .content {
+            padding-top: 147px;
+            padding-bottom: 82px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start your project here-->
     <header>
         <nav class="navbar fixed-top navbar-expand-lg bg-white scrolling-navbar">
             <div class="container-fluid">
@@ -29,7 +63,7 @@
                 <div class="col-md-4 d-flex flex-column justify-content-between">
                     <div class="card portfolio-info-card">
                         <div class="card-header">
-                            <p class="big-text">{{ portfolio.client.name }}</p>
+                            <p class="big-text">{{ portfolio.name }}</p>
                         </div>
                         <div class="card-body">
                             <div class="stroke d-flex align-items-center">
@@ -59,7 +93,7 @@
                             <div class="card-block">
                                 <div class="target-cost-card__top d-flex align-items-center justify-content-between">
                                     <p class="small-heading">Целевая стоимость</p>
-                                    <p class="huge-text">$ 700,000</p>
+                                    <p class="huge-text">{{ target_portfolio_value }}₽</p>
                                 </div>
                                 <p class="target-cost-card__caption text-right">35.71% to Target Value</p>
                                 <div class="progress-block">
@@ -75,7 +109,7 @@
                             <div class="card-block risk-progress">
                                 <div class="target-cost-card__top d-flex align-items-center justify-content-between">
                                     <p class="small-heading">Риск профиль</p>
-                                    <p class="huge-text">74%</p>
+                                    <p class="huge-text">{{ portfolio.maximum_allowable_drawdown }}%</p>
                                 </div>
                                 <div class="progress-block">
                                     <div class="progress-block__line">
@@ -142,51 +176,17 @@
                                             <div id="donutChart"></div>
                                         </div>
                                         <div class="graph-options scrollbar-inner">
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Cash</p>
-                                                    <p class="target-cost-card__caption">3,50%</p>
+                                            {% for sector, percentage, value, color in sectors_list %}
+                                                <div class="progress-block">
+                                                    <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                        <p class="target-cost-card__caption">{{ sector }}</p>
+                                                        <p class="target-cost-card__caption">{{ percentage }}%</p>
+                                                    </div>
+                                                    <div class="progress-block__line">
+                                                        <div class="progress-block__percent" style="width: {{ value }}px; background-color: rgb({{ color  }});"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_1"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">US Equities</p>
-                                                    <p class="target-cost-card__caption">40,01%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_2"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">International Equeties</p>
-                                                    <p class="target-cost-card__caption">29,99%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_3"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -197,51 +197,17 @@
                                             <div id="donutChart2"></div>
                                         </div>
                                         <div class="graph-options scrollbar-inner">
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Cash</p>
-                                                    <p class="target-cost-card__caption">3,50%</p>
+                                           {% for sector, percentage, value, color in sectors_list %}
+                                                <div class="progress-block">
+                                                    <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                        <p class="target-cost-card__caption">{{ sector }}</p>
+                                                        <p class="target-cost-card__caption">{{ percentage }}%</p>
+                                                    </div>
+                                                    <div class="progress-block__line">
+                                                        <div class="progress-block__percent" style="width: {{ value }}px; background-color: rgb({{ color  }});"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_1"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">US Equities</p>
-                                                    <p class="target-cost-card__caption">40,01%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_2"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">International Equeties</p>
-                                                    <p class="target-cost-card__caption">29,99%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_3"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -671,6 +637,7 @@
     <script type="text/javascript" src="{% static 'js1/mdb.min.js' %}"></script>
     <script src="{% static 'js1/wow.min.js' %}"></script>
     <script src="{% static 'js1/billboard.pkgd.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js1/main.js' %}"></script>
     <!-- Any Chart -->
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
@@ -691,17 +658,15 @@
         },
         data: {
             columns: [
-                ["data1", 3.5],
-                ["data2", 40.01],
-                ["data3", 29.99],
-                ["data4", 26.50],
+                {% for sector, percentage, value, color in sectors_list %}
+                ["{{ sector }}", {{ percentage }}],
+                {% endfor %}
             ],
             type: "donut",
             colors: {
-                data1: "#0633BE",
-                data2: "#3868CE",
-                data3: "#4697FE",
-                data4: "#02BFFB",
+                {% for sector, percentage, value, color in sectors_list %}
+                '{{ sector }}': "rgb({{color}})",
+                {% endfor %}
             } // for ESM specify as: donut()
         },
         donut: {
@@ -727,17 +692,15 @@
         },
         data: {
             columns: [
-                ["data1", 3.5],
-                ["data2", 40.01],
-                ["data3", 29.99],
-                ["data4", 26.50],
+                {% for sector, percentage, value, color in sectors_list %}
+                ["{{ sector }}", {{ percentage }}],
+                {% endfor %}
             ],
             type: "donut",
             colors: {
-                data1: "#0633BE",
-                data2: "#3868CE",
-                data3: "#4697FE",
-                data4: "#02BFFB",
+                {% for sector, percentage, value, color in sectors_list %}
+                '{{ sector }}': "rgb({{color}})",
+                {% endfor %}
             } // for ESM specify as: donut()
         },
         donut: {
@@ -1123,4 +1086,6 @@
 
     $('.scrollbar-inner').scrollbar();
     </script>
-{% endblock %}
+</body>
+
+</html>

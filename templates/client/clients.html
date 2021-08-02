@@ -30,7 +30,7 @@
                             </ul>
                             <button class="btn_off filters-main__btn">Очистить все</button>
                         </div>
-                        <div class="dropdown filters-dropdown">
+                        <!--<div class="dropdown filters-dropdown">
                             <button class="signals__sort-btn dropdown-toggle" type="button" id="dropdownFilters" data-mdb-toggle="dropdown" aria-expanded="false">
                                 Фильтры
                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +55,7 @@
                                 <li><a class="dropdown-item" href="#">2</a></li>
                                 <li><a class="dropdown-item" href="#">3</a></li>
                             </ul>
-                        </div>
+                        </div>-->
                         <button class="sorting-btn btn_off active sorting-btn_1">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="3" y="4" width="7" height="7" fill="#2E364A" />
@@ -154,57 +154,51 @@
             <p class="updated">Last updated: Thu Oct 03 2019 12:35:10 GMT-0700</p>
             <div class="row fadeIn client-cards">
                 <div class="col-md-4 client-grid">
-                    {% for i in all_clients %}
-                    <div class="card client-card">
-                        <div class="card-header d-flex align-items-start justify-content-between">
-                            <div>
-                                <a href="{% url 'client-overview' i.pk %}" class="card-title">{{ i.name }}</a>
-                                <span class="badge bg-success badge-edited">Отслеживать</span>
+                    {% for i, active in all_clients %}
+                        <div class="card client-card">
+                            <div class="card-header d-flex align-items-start justify-content-between">
+                                <div>
+                                    <a href="{% url 'client-overview' i.pk %}" class="card-title">{{ i.name }}</a>
+                                    <span class="badge bg-success badge-edited">Отслеживать</span>
+                                </div>
+                                <div class="dropdown client-card__settings d-flex align-items-center justify-content-end">
+                                    <button class="signals__sort-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="4.58228" cy="2.5" r="2.5" fill="#2E364A" />
+                                            <circle cx="4.58228" cy="9.5" r="2.5" fill="#2E364A" />
+                                            <circle cx="4.58228" cy="16.5" r="2.5" fill="#2E364A" />
+                                        </svg>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="{% url 'client-delete' i.pk %}" data-mdb-toggle="" data-mdb-target="#clientsDeleteInfo">Удалить</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="dropdown client-card__settings d-flex align-items-center justify-content-end">
-                                <button class="signals__sort-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                                    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="4.58228" cy="2.5" r="2.5" fill="#2E364A" />
-                                        <circle cx="4.58228" cy="9.5" r="2.5" fill="#2E364A" />
-                                        <circle cx="4.58228" cy="16.5" r="2.5" fill="#2E364A" />
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#" data-mdb-toggle="modal" data-mdb-target="#clientsEditInfo">Изменить</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'client-delete' i.pk %}" data-mdb-toggle="" data-mdb-target="#clientsDeleteInfo">Удалить</a></li>
-                                </ul>
+                            <div class="card-body d-flex align-items-center justify-content-between">
+                                <div class="card-client__cost">
+                                    <p class="card-title card-title_normal">Активы</p>
+                                    <p class="huge-text">{{ active }}₽
+                                     </p>
+                                </div>
+                                <div class="client-rating">
+                                    <span class="text-success d-flex align-items-center client-rating__item">
+                                        <span>YTD 0.88 %</span>
+                                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H3V5H0.5L4 0L7.5 5H5V12Z" fill="#11CDA9" />
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body d-flex align-items-center justify-content-between">
-                            <div class="card-client__cost">
-                                <p class="card-title card-title_normal">Активы</p>
-                                <p class="huge-text">$ 345,533</p>
-                            </div>
-                            <div class="client-rating">
-                                <span class="text-success d-flex align-items-center client-rating__item">
-                                    <span>YTD 0.88 %</span>
-                                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 12H3V5H0.5L4 0L7.5 5H5V12Z" fill="#11CDA9" />
-                                    </svg>
-                                </span>
-                                <span class="text-success d-flex align-items-center client-rating__item">
-                                    <span>YTD 0.88 %</span>
-                                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 12H3V5H0.5L4 0L7.5 5H5V12Z" fill="#11CDA9" />
-                                    </svg>
-                                </span>
+                            <div class="card-footer text-right">
+                                Портфели: {{ i.portfolio.count }}
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            Портфели: {{ i.portfolio.count }}
-                        </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>    
             <div class="row fadeIn client-cards_stroke">
                 <div class="col-md-12">
-                    {% for i in all_clients %}
+                    {% for i, active in all_clients %}
                     <div class="card client-card_stroke">
                         <div class="card-body">
                             <div class="client-card__arrow">
@@ -212,7 +206,7 @@
                                     <path d="M0.956055 1L10.9561 11L20.9561 1" stroke="#2E364A" stroke-width="2" />
                                 </svg>
                             </div>
-                            <a href="overview-client.html" class="client-card__name">{{ i.name }}</a>
+                            <a href="{% url 'client-overview' i.pk %}" class="client-card__name">{{ i.name }}</a>
                             <p class="client-card__profit d-flex align-items-center justify-content-end">
                                 <span class="text-success d-flex align-items-center justify-content-end">
                                     <span>1.88 % </span>
@@ -221,7 +215,7 @@
                                     </svg>
                                 </span>
                             </p>
-                            <p class="client-card__actives d-flex align-items-center justify-content-end">$4,475,45</p>
+                            <p class="client-card__actives d-flex align-items-center justify-content-end">{{ active }}₽</p>
                             <p class="client-card__porfolio d-flex align-items-center justify-content-end">3</p>
                             <div class="client-card__signals d-flex align-items-center justify-content-end">
                                 <span class="badge bg-danger">5</span>
@@ -389,38 +383,52 @@
                     </svg>
                     <div class="modal-title">Добавить клиента</div>
                 </div>
-                <div class="modal-body">
-                    <div class="modal-wrap-400">
-                        <div class="field-row">
-                            <label for="clientsClientName">Имя</label>
-                            <input class="field" id="clientsClientName" type="text">
+                <form action="{% url 'new-client' %}" method="post">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="modal-wrap-400">
+                            <div class="field-row">
+                                <label for="addClientName">Имя</label>
+                                <input name="client_name" class="field" id="addClientName" type="text">
+                            </div>
+                            <div class="field-row">
+                                <label for="addClienDesc">Описание</label>
+                                <textarea name="client_description" class="field" id="addClienDesc"></textarea>
+                            </div>
+                                <div class="field-row">
+                                <label for="birthday">Дата рождения</label>
+                                <input name="client_date_birth" class="field" id="birthday" type="date">
+                            </div>
+                            <div class="field-row">
+                                <label for="pension">Выход на пенсию</label>
+                                <input name="client_retirement_date" class="field" id="pension" type="date">
+                            </div>
+                            <div class="field-row">
+                                <label for="busyness">Статус Занятости</label>
+                                <!-- <input class="field" id="busyness" type="text"> -->
+                                <select name="client_employment_status" class="bs-select" id="busynessSelect" title="Выберите из списка">
+                                    <option value="0">Работает по найму</option>
+                                    <option value="1">Самозанятый</option>
+                                    <option value="2">Предприниматель</option>
+                                    <option value="3">Не работает</option>
+                                </select>
+                            </div>
+                            <div class="field-row">
+                                <label for="drawdowns">Поведение при просадках</label>
+                                <select name="client_drawdown_behavior" class="bs-select" id="dawdownsSelect" title="Выберите из списка">
+                                    <option value="0">Усреднение</option>
+                                    <option value="1">Терпимое отношение</option>
+                                    <option value="2">Продажа части акций</option>
+                                    <option value="3">Закрытие портфеля</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="field-row">
-                            <label for="clientsClienDesc">Описание</label>
-                            <textarea class="field" id="clientsClienDesc"></textarea>
-                        </div>
-                        <div class="field-row">
-                            <label for="clientsClientDate">Дата рождения</label>
-                            <input class="field" id="clientsClientDate" type="text">
-                        </div>
-                        <div class="field-row">
-                            <label for="clientsClientPension">Выход на пенсию</label>
-                            <input class="field" id="clientsClientPension" type="text">
-                        </div>
-                        <div class="field-row">
-                            <label for="clientsClientBysiness">Статус занятости</label>
-                            <input class="field" id="clientsClientBysiness" type="text">
-                        </div>
-                        <div class="field-row">
-                            <label for="clientsClientDraws">Поведение при просадках</label>
-                            <input class="field" id="clientsClientDraws" type="text">
+                        <div class="case-btns">
+                            <button class="btn btn-primary modal-main-btn">Добавить клиента</button>
+                            <button class="btn_off btn-type-link" data-mdb-dismiss="modal">Отмена</button>
                         </div>
                     </div>
-                    <div class="case-btns">
-                        <button class="btn btn-primary modal-main-btn">Добавить клиента</button>
-                        <button class="btn_off btn-type-link" data-mdb-dismiss="modal">Отмена</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -488,42 +496,4 @@
             </div>
         </div>
     </div>
-    <!-- End your project here-->
-    <!-- MDB -->
-    <!-- Custom scripts -->
-    <script>
-    new WOW().init()
-    </script>
-    <script>
-    let tmpTAG = '<li class="flters-list__item">%VALUE%<div class="-del"></div></li>',
-        output = document.querySelector('.filters-list');
-
-    output.addEventListener('click', function(e) {
-        if (e.target.classList.contains('-del')) {
-            e.target.closest('.flters-list__item').remove();
-        }
-
-        if ($('.flters-list__item').length == 0) {
-            $('.navbar-bottom').removeClass('flex-column')
-            $('.navbar-bottom').addClass('align-items-center')
-            $('.navbar__card-settings').addClass('ml-auto')
-            $('.navbar__card-settings').css('margin-top', '0')
-            $('.filters-dropdown').removeClass('ml-auto')
-            $('.filters-main').fadeOut(1)
-            let top = $('.navbar').height()
-            if (cardToggler == 1) {
-                $('.content').css('padding-top', top + 30 + 45)
-            } else if (cardToggler == 0) {
-                $('.content').css('padding-top', top + 30 + 25 + 63)
-            }
-
-            $('.cards-table').css('top', top + 30)
-        }
-    });
-
-    $('.filters__dropdown-item').bind('click', function() {
-        let val = $(this).text()
-        $('.filters-list').append(tmpTAG.replace(/%VALUE%/gm, val))
-    })
-    </script>
 {% endblock %}

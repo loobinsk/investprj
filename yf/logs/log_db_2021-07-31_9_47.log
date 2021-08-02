@@ -1,0 +1,10 @@
+[INFO] - 2021-07-31 09:47:19,156 - 510 tickers got from the DB
+[INFO] - 2021-07-31 09:47:19,158 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 09:47:23,158 - 510 tickers got from the DB
+[INFO] - 2021-07-31 09:47:23,158 - 510 tickers got from the DB
+[INFO] - 2021-07-31 09:47:23,161 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 09:47:23,161 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 09:47:40,376 - 510 tickers got from the DB
+[INFO] - 2021-07-31 09:47:40,378 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 09:49:34,075 - YFinance data load call. Start date: 2021-07-29. Finish date: 2021-07-31
+[INFO] - 2021-07-31 09:49:34,085 - Inserting data into the DB

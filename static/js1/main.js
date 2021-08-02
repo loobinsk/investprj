@@ -585,7 +585,7 @@ $('#next6').bind('click', function() {
     $(".preloader").fadeIn(500)
     setTimeout(function() {
         $(location).attr('href', urlView);
-    }, 4000);
+    }, 5000000000);
 })
 
 

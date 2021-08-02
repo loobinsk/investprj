@@ -1,0 +1,9 @@
+[INFO] - 2021-07-30 07:43:05,381 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:43:17,733 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:43:17,733 - 508 tickers got from the DB
+[ERROR] - 2021-07-30 07:43:22,850 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:43:22,850 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-30 07:43:27,857 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-30 07:43:27,857 - An error while deleting all tickers. database is locked
+[INFO] - 2021-07-30 07:43:27,858 - Reading data from Yahoo Finance
+[INFO] - 2021-07-30 07:43:27,858 - Reading data from Yahoo Finance

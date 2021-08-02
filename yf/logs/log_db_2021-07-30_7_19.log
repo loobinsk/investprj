@@ -1,0 +1,7 @@
+[INFO] - 2021-07-30 07:19:17,399 - 508 tickers got from the DB
+[INFO] - 2021-07-30 07:19:55,706 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,763 - YFinance data load call. Start date: 2021-07-28. Finish date: 2021-07-30
+[INFO] - 2021-07-30 07:19:55,785 - Inserting data into the DB
+[ERROR] - 2021-07-30 07:19:55,840 - Error while writing to the DB. database is locked
+[INFO] - 2021-07-30 07:19:55,844 - Inserting data into the DB
+[ERROR] - 2021-07-30 07:19:55,901 - Error while writing to the DB. database is locked

@@ -1,0 +1,38 @@
+[INFO] - 2021-07-28 12:51:23,561 - 510 tickers got from the DB
+[ERROR] - 2021-07-28 12:51:32,514 - Error occurs while reading tickers. database is locked
+[ERROR] - 2021-07-28 12:51:32,514 - Error occurs while reading tickers. database is locked
+[ERROR] - 2021-07-28 12:51:32,514 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-28 12:51:32,514 - Error while cleaning the DB. database is locked
+[ERROR] - 2021-07-28 12:51:32,514 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-28 12:51:32,514 - An error while deleting all tickers. database is locked
+[ERROR] - 2021-07-28 12:51:32,515 - Tickers are not inserted in DB. Error message database is locked
+[ERROR] - 2021-07-28 12:51:32,515 - Tickers are not inserted in DB. Error message database is locked
+[ERROR] - 2021-07-28 12:51:32,515 - Error occurs while reading tickers. database is locked
+[ERROR] - 2021-07-28 12:51:32,515 - Error occurs while reading tickers. database is locked
+[INFO] - 2021-07-28 12:51:32,515 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 12:51:32,515 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 12:51:33,545 - YFinance data load call. Start date: 2021-01-29. Finish date: 2021-07-28
+[INFO] - 2021-07-28 12:51:33,545 - YFinance data load call. Start date: 2021-01-29. Finish date: 2021-07-28
+[INFO] - 2021-07-28 12:51:33,728 - Inserting data into the DB
+[INFO] - 2021-07-28 12:51:33,728 - Inserting data into the DB
+[ERROR] - 2021-07-28 12:51:33,729 - Error while writing to the DB. database is locked
+[ERROR] - 2021-07-28 12:51:33,729 - Error while writing to the DB. database is locked
+[INFO] - 2021-07-28 12:51:34,357 - The database is cleaned
+[INFO] - 2021-07-28 12:51:34,357 - The database is cleaned
+[INFO] - 2021-07-28 12:51:34,431 - 0 tickers got from the DB
+[INFO] - 2021-07-28 12:51:34,431 - 0 tickers got from the DB
+[INFO] - 2021-07-28 12:51:34,431 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 12:51:34,431 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 12:51:34,497 - 511 tickers inserted in DB
+[INFO] - 2021-07-28 12:51:34,497 - 511 tickers inserted in DB
+[INFO] - 2021-07-28 12:51:34,506 - 510 tickers got from the DB
+[INFO] - 2021-07-28 12:51:34,506 - 510 tickers got from the DB
+[INFO] - 2021-07-28 12:51:34,506 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 12:51:34,506 - Reading data from Yahoo Finance
+[INFO] - 2021-07-28 12:51:50,783 - 510 tickers got from the DB
+[INFO] - 2021-07-28 12:51:51,003 - The database is cleaned
+[INFO] - 2021-07-28 12:51:51,062 - 0 tickers got from the DB
+[INFO] - 2021-07-28 12:51:51,062 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 12:51:51,129 - 511 tickers inserted in DB
+[INFO] - 2021-07-28 12:51:51,129 - 510 tickers got from the DB
+[INFO] - 2021-07-28 12:51:51,130 - Reading data from Yahoo Finance

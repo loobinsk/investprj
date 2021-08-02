@@ -1,0 +1,7 @@
+[INFO] - 2021-07-28 13:46:54,979 - 510 tickers got from the DB
+[INFO] - 2021-07-28 13:46:55,106 - The database is cleaned
+[INFO] - 2021-07-28 13:46:55,196 - 0 tickers got from the DB
+[INFO] - 2021-07-28 13:46:55,196 - All tickers are deleted from the DB
+[INFO] - 2021-07-28 13:46:55,262 - 511 tickers inserted in DB
+[INFO] - 2021-07-28 13:46:55,263 - 510 tickers got from the DB
+[INFO] - 2021-07-28 13:46:55,263 - Reading data from Yahoo Finance

@@ -1,0 +1,29 @@
+[INFO] - 2021-07-31 05:20:02,700 - 29 tickers got from the DB
+[INFO] - 2021-07-31 05:20:03,724 - The database is cleaned
+[INFO] - 2021-07-31 05:20:03,782 - 0 tickers got from the DB
+[INFO] - 2021-07-31 05:20:03,782 - All tickers are deleted from the DB
+[INFO] - 2021-07-31 05:20:03,849 - 508 tickers inserted in DB
+[INFO] - 2021-07-31 05:20:03,849 - 507 tickers got from the DB
+[INFO] - 2021-07-31 05:20:03,849 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 05:20:06,743 - 507 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,743 - 507 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,801 - The database is cleaned
+[INFO] - 2021-07-31 05:20:06,801 - The database is cleaned
+[INFO] - 2021-07-31 05:20:06,862 - 0 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,862 - 0 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,862 - All tickers are deleted from the DB
+[INFO] - 2021-07-31 05:20:06,862 - All tickers are deleted from the DB
+[INFO] - 2021-07-31 05:20:06,925 - 508 tickers inserted in DB
+[INFO] - 2021-07-31 05:20:06,925 - 508 tickers inserted in DB
+[INFO] - 2021-07-31 05:20:06,926 - 507 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,926 - 507 tickers got from the DB
+[INFO] - 2021-07-31 05:20:06,926 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 05:20:06,926 - Reading data from Yahoo Finance
+[INFO] - 2021-07-31 05:21:50,275 - YFinance data load call. Start date: 2021-07-29. Finish date: 2021-07-31
+[INFO] - 2021-07-31 05:21:50,275 - YFinance data load call. Start date: 2021-07-29. Finish date: 2021-07-31
+[INFO] - 2021-07-31 05:21:50,332 - YFinance data load call. Start date: 2021-07-29. Finish date: 2021-07-31
+[INFO] - 2021-07-31 05:21:50,332 - YFinance data load call. Start date: 2021-07-29. Finish date: 2021-07-31
+[INFO] - 2021-07-31 05:21:50,370 - Inserting data into the DB
+[INFO] - 2021-07-31 05:21:50,370 - Inserting data into the DB
+[INFO] - 2021-07-31 05:21:50,370 - Inserting data into the DB
+[INFO] - 2021-07-31 05:21:50,370 - Inserting data into the DB

@@ -1,0 +1,20 @@
+[INFO] - 2021-07-26 08:42:29,475 - 514 tickers got from the DB
+[INFO] - 2021-07-26 08:57:18,999 - 514 tickers got from the DB
+[INFO] - 2021-07-26 08:57:19,077 - The database is cleaned
+[INFO] - 2021-07-26 08:57:19,176 - 0 tickers got from the DB
+[INFO] - 2021-07-26 08:57:19,177 - All tickers are deleted from the DB
+[INFO] - 2021-07-26 08:57:19,243 - 515 tickers inserted in DB
+[INFO] - 2021-07-26 08:57:19,248 - 514 tickers got from the DB
+[INFO] - 2021-07-26 08:57:19,248 - Reading data from Yahoo Finance
+[INFO] - 2021-07-26 08:57:23,005 - 514 tickers got from the DB
+[INFO] - 2021-07-26 08:57:23,073 - The database is cleaned
+[INFO] - 2021-07-26 08:57:23,140 - 0 tickers got from the DB
+[INFO] - 2021-07-26 08:57:23,140 - All tickers are deleted from the DB
+[INFO] - 2021-07-26 08:57:23,207 - 515 tickers inserted in DB
+[INFO] - 2021-07-26 08:57:23,208 - 514 tickers got from the DB
+[INFO] - 2021-07-26 08:57:23,208 - Reading data from Yahoo Finance
+[INFO] - 2021-07-26 08:59:48,721 - YFinance data load call. Start date: 2016-08-21. Finish date: 2021-07-26
+[INFO] - 2021-07-26 08:59:48,910 - Inserting data into the DB
+[INFO] - 2021-07-26 09:00:10,105 - YFinance data load call. Start date: 2016-08-21. Finish date: 2021-07-26
+[INFO] - 2021-07-26 09:00:10,153 - Inserting data into the DB
+[ERROR] - 2021-07-26 09:00:32,458 - Error while writing to the DB. database is locked

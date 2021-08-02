@@ -1,0 +1,32 @@
+[INFO] - 2021-07-21 07:28:07,896 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:28:07,966 - 0 tickers got from the DB
+[INFO] - 2021-07-21 07:28:07,966 - All tickers are deleted from the DB
+[INFO] - 2021-07-21 07:28:08,016 - 12 tickers inserted in DB
+[INFO] - 2021-07-21 07:28:08,016 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:28:08,016 - Reading data from Yahoo Finance
+[INFO] - 2021-07-21 07:28:10,016 - YFinance data load call. Start date: 2019-08-01. Finish date: 2021-07-21
+[INFO] - 2021-07-21 07:28:10,018 - Inserting data into the DB
+[INFO] - 2021-07-21 07:29:06,157 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:06,371 - 0 tickers got from the DB
+[INFO] - 2021-07-21 07:29:06,384 - All tickers are deleted from the DB
+[INFO] - 2021-07-21 07:29:06,705 - 12 tickers inserted in DB
+[INFO] - 2021-07-21 07:29:06,718 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:06,865 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:06,873 - Reading data from Yahoo Finance
+[INFO] - 2021-07-21 07:29:06,977 - 0 tickers got from the DB
+[INFO] - 2021-07-21 07:29:06,989 - All tickers are deleted from the DB
+[INFO] - 2021-07-21 07:29:07,094 - 12 tickers inserted in DB
+[INFO] - 2021-07-21 07:29:07,185 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:07,253 - Reading data from Yahoo Finance
+[INFO] - 2021-07-21 07:29:09,043 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:09,188 - 0 tickers got from the DB
+[INFO] - 2021-07-21 07:29:09,221 - All tickers are deleted from the DB
+[INFO] - 2021-07-21 07:29:09,363 - 12 tickers inserted in DB
+[INFO] - 2021-07-21 07:29:09,366 - 11 tickers got from the DB
+[INFO] - 2021-07-21 07:29:09,374 - Reading data from Yahoo Finance
+[INFO] - 2021-07-21 07:29:12,086 - YFinance data load call. Start date: 2019-08-01. Finish date: 2021-07-21
+[INFO] - 2021-07-21 07:29:12,129 - YFinance data load call. Start date: 2019-08-01. Finish date: 2021-07-21
+[INFO] - 2021-07-21 07:29:12,164 - YFinance data load call. Start date: 2019-08-01. Finish date: 2021-07-21
+[INFO] - 2021-07-21 07:29:12,282 - Inserting data into the DB
+[INFO] - 2021-07-21 07:29:12,341 - Inserting data into the DB
+[INFO] - 2021-07-21 07:29:12,395 - Inserting data into the DB

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 works_for_hire = 0
 self_employed = 1
@@ -47,6 +48,8 @@ class Client(models.Model):
 	retirement_date = models.DateField()
 	drawdown_behavior = models.PositiveSmallIntegerField(choices=DRAWDOWN_BEHAVIOR,)
 	employment_status = models.PositiveSmallIntegerField(choices=EMPLOYMENT_STATUS,)
+
+
 
 	def __str__(self):
 		return self.name

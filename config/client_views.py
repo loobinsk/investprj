@@ -59,7 +59,7 @@ def client_detail(request, pk):
 	for i in portfolios_drafts:
 		_list = []
 		portfolio_profit = round(lg.get_profitability_portfolio(i), 2)
-		all_portfolio_active = round(lg.actual_price_portfolio(i), 2)
+		all_portfolio_active = round(lg.actual_price_portfolio(i, True), 2)
 		_list.append(i)
 		_list.append(portfolio_profit)
 		_list.append(all_portfolio_active)
@@ -72,7 +72,7 @@ def client_detail(request, pk):
 	for i in portfolios:
 		_list = []
 		portfolio_profit = round(lg.get_profitability_portfolio(i), 2)
-		all_portfolio_active = round(lg.actual_price_portfolio(i),2)
+		all_portfolio_active = round(lg.actual_price_portfolio(i, dollars=True),2)
 		_list.append(i)
 		_list.append(portfolio_profit)
 		_list.append(all_portfolio_active)

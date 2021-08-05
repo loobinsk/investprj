@@ -17,7 +17,11 @@ from portfolio.models import TickerValue
 
 from yf import YFinance
 from yf.portfolio import Portfolio as prtf
+
+from .course_control import Currency
+
 from .logic import Logic
+
 from .ticker_list import rf_shares
 from .ticker_list import shares_for_skilled_investman
 from .ticker_list import american_shares
@@ -75,12 +79,13 @@ def portfolio_view(request, pk):
 	portfolio = Portfolio.objects.get(pk=pk)
 	stocks = Stock.objects.filter(portfolio=portfolio)
 	lg = Logic()
-	target_portfolio_value = lg.get_portfolio_value(portfolio)
+	target_portfolio_value = lg.get_portfolio_value(portfolio, True)
 
 	sectors = []
 	for i in stocks:
 		sector = i.ticker.sector
 		sectors.append(sector)
+
 
 	sectors_dict = lg.get_prc(sectors)
 	sectors_list = []
@@ -96,7 +101,6 @@ def portfolio_view(request, pk):
 		new_list.append(color)
 		sectors_list.append(new_list)
 
-	print(sectors_list)
 	template = 'view.html'
 	context = {
 		'sectors_list': sectors_list,
@@ -114,8 +118,11 @@ def create_portfolio(request):
 	all_stocks = Stock.objects.all()
 	all_tickers = Ticker.objects.order_by('name').all()
 	all_sectors = []
+
 	for i in all_tickers:
 		all_sectors.append(i.sector)
+
+	total_sectors = list(set(all_sectors))
 
 	if request.method == 'POST':
 		client_pk = None
@@ -191,12 +198,18 @@ def create_portfolio(request):
 			list_sectors.append(i)
 		invest_strategy = int(request.POST['invest_strategy'])
 
+		shares_blacklist = []
+		for i in request.POST.getlist('shares'):
+			shares_blacklist.append(i)
+
+
 		portfolio = Portfolio(
 			client = client,
 			sector_blacklist = list_sectors,
 			name=name,
 			initial_investment_amount=initial_investment_amount,
 			investment_horizon=investment_horizon,
+			shares_blacklist=shares_blacklist,
 			type_investor=type_investmen,
 			currency=currency,
 			maximum_allowable_drawdown=maximum_allowable_drawdown,
@@ -208,11 +221,13 @@ def create_portfolio(request):
 			active=False,
 			)
 
+		
+
 		portfolio.save()
 
 		ticker_list = []
 		for i in all_tickers:
-			ticker_list.append(i.name)
+			ticker_list.append(i)
 
 		skill_shares = rf_shares+shares_for_skilled_investman
 		
@@ -225,24 +240,81 @@ def create_portfolio(request):
 		len_shares_for_skilled_investman = len(list_skilled_investman)
 
 		if type_investmen == 1:
-			for i in ticker_list:
-				if i not in list_skilled_investman:
-					del ticker_list[i]
+			for i in ticker_list.copy():
+				if i.name not in list_skilled_investman:
+					index = ticker_list.index(i)
+					del ticker_list[index]
 
-		if type_according_risk_reward == 0:
-			for i in ticker_list:
-				if i.type_according_risk_reward != 0:
-					del ticker_list[i]
+		for i in ticker_list.copy():
+			if type_according_risk_reward == 0:
+				if i.type_according_risk_reward != 'Агрессивный':
+					index = ticker_list.index(i)
+					del ticker_list[index]
 
+			elif type_according_risk_reward == 1:
+				if i.type_according_risk_reward != 'Консервативный':
+					index = ticker_list.index(i)
+					del ticker_list[index]
 
+			elif type_according_risk_reward == 2:
+				if i.type_according_risk_reward != 'Сбалансированный':
+					index = ticker_list.index(i)
+					del ticker_list[index]
 
+		for i in ticker_list.copy():
+			if 'Международные акции' not in portfolio.types_assets:
+				if i.name in list_american_shares:
+					index = ticker_list.index(i)
+					del ticker_list[index]
+			if 'Акции российских компаний' not in portfolio.types_assets:
+				if i.name in list_rf_shares:
+					index = ticker_list.index(i)
+					del ticker_list[index]
 
+		for i in ticker_list.copy():
+			if i.sector in portfolio.sector_blacklist:
+				index = ticker_list.index(i)
+				del ticker_list[index]
+
+		for i in ticker_list.copy():
+			if i.name in portfolio.shares_blacklist:
+				index = ticker_list.index(i)
+				del ticker_list[index]
+
+		total_tickers_list = []
+		count = len(ticker_list)
+		rdm = None
+		try:
+			if invest_strategy == 0:
+				count_shares = random.sample(range(13, 17), 1)
+				count_shares = count_shares[0]
+				rdm = random.sample(range(0, count), count_shares)
+
+			elif invest_strategy == 1:
+				count_shares = random.sample(range(8, 14), 1)
+				count_shares = count_shares[0]
+				rdm = random.sample(range(0, count), count_shares)
+
+			elif invest_strategy == 2:
+				count_shares = random.sample(range(25, 35), 1)
+				count_shares = count_shares[0]
+				rdm = random.sample(range(0, count), count_shares)
+
+			for i in rdm:
+				total_tickers_list.append(ticker_list[i])
+
+			_list = []
+			for i in total_tickers_list:
+				_list.append(i.name)
+		except:
+			portfolio.delete()
+			return HttpResponse('к сожалению, с заданными фильтрами недостаточно акций для формирования портфеля. Попробуйте создать портфель с другими настройками.')
 
 
 
 		yf.del_all_from_db()
 		yf.del_all_tickers()
-		yf.add_tickers(ticker_list)
+		yf.add_tickers(_list)
 		yf.initial_data_load()
 		yf.__del__()
 
@@ -281,6 +353,7 @@ def create_portfolio(request):
 
 	template = 'create.html'
 	context = {
+		'total_sectors': total_sectors,
 		'all_clients': all_clients,
 		'all_stocks': all_stocks,
 		'all_tickers': all_tickers,
@@ -289,6 +362,7 @@ def create_portfolio(request):
 
 
 def portfolio_detail(request, pk):
+	cr = Currency()
 	lg = Logic()
 	portfolio = Portfolio.objects.get(pk=pk)
 	profit = round(lg.get_profitability_portfolio(portfolio, True), 2)
@@ -307,18 +381,20 @@ def portfolio_detail(request, pk):
 		color_count += 30
 		color = f'37, {color_count}, 219'
 		new_list.append(key)
-		new_list.append(value)
+		new_list.append(round(value, 2))
 		new_list.append(width)
 		new_list.append(color)
 		sectors_list.append(new_list)
 
-	actual_price = round(lg.actual_price_portfolio(portfolio), 2)
+	actual_price = round(lg.actual_price_portfolio(portfolio, True), 2)
 	all_stocks = Stock.objects.filter(portfolio=portfolio)
 
 	shares_list = []
 	for i in all_stocks:
 		_list = []
 		actual_share_price = round(lg.get_profitability_share(i, date=portfolio.create_date-timedelta(1), actual_price=True, percentag_or_profit=False), 2)
+		if portfolio.currency == 0:
+			actual_share_price = round(actual_share_price/float(cr.get_currency_price()), 2)
 		quantity = round(i.value_share/actual_share_price, 2)
 		_list.append(i)
 		_list.append(actual_share_price)

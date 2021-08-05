@@ -24,4 +24,13 @@ class Currency:
 
 		# Получаем нужное для нас значение и возвращаем его
 		convert = soup.findAll("span", {"class": "DFlfde", "class": "SwHCTb", "data-precision": 2})
-		return convert[0].text
+		price = convert[0].text
+
+		price_list = []
+		for i in price.split(','):
+			price_list.append(i)
+
+		price = f'{price_list[0]}.{price_list[1]}'
+		price = float(price)
+
+		return price

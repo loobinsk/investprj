@@ -420,10 +420,10 @@
                                             <input type="checkbox" id="bonds" name="types-assets" value="Международные акции">
                                             <label for="bonds">Международные акции</label>
                                         </div>
-                                        <div class="field-row d-flex align-items-center">
+<!--                                         <div class="field-row d-flex align-items-center">
                                             <input type="checkbox" id="treasury" name="types-assets" value="Торговые рынки">
                                             <label for="treasury">Товарные рынки</label>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="quiz__right">
                                         <h3 class="quiz__subtitle">Виды активов</h3>
@@ -435,46 +435,12 @@
                                         Какие сектора вы хотели бы убрать из портфеля?
                                     </h3>
                                     <div class="sectors-list">
+                                        {% for i in total_sectors %}
                                         <div class="sector">
-                                            <input type="checkbox" id="finance" name="sectors" value="Финансовый">
-                                            <label for="finance">Финансовый</label>
+                                            <input type="checkbox" id="{{ i }}" name="sectors" value="{{ i }}">
+                                            <label for="{{ i }}">{{ i }}</label>
                                         </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="health" name="sectors" value="Здравоохранение">
-                                            <label for="health">Здравоохранение</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="consumer" name="sectors" value="Потребительские услуги">
-                                            <label for="consumer">Потребительские услуги</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="energy" name="sectors" value="Энергетический">
-                                            <label for="energy">Энергетический</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="industrial" name="sectors" value="Промышленный">
-                                            <label for="industrial">Промышленный</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="consumer_goods" name="sectors" value="Потребительские товары">
-                                            <label for="consumer_goods">Потребительские товары</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="estate" name="sectors" value="Недвижимость">
-                                            <label for="estate">Недвижимость</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="technological" name="sectors" value="Технологический">
-                                            <label for="technological">Технологический</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="materials" name="sectors" value="Сырьевой">
-                                            <label for="materials">Сырьевой</label>
-                                        </div>
-                                        <div class="sector">
-                                            <input type="checkbox" id="telecommunication" name="sectors" value="Телекоммуникационный">
-                                            <label for="telecommunication">Телекоммуникационный</label>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="securities">
@@ -484,7 +450,7 @@
                                     <div class="sectors-list">
                                         {% for i in all_tickers %}
                                         <div class="sector">
-                                            <input type="checkbox" id="{{ i }}" name="sectors" value="Финансовый">
+                                            <input type="checkbox" id="{{ i }}" name="shares" value="{{ i.name }}">
                                             <label for="{{ i }}">{{ i.name }}</label>
                                         </div>
                                         {% endfor %}

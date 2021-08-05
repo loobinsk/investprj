@@ -73,7 +73,8 @@ class Portfolio(models.Model):
 	maximum_allowable_drawdown = models.FloatField('максимально допустимая просадка',)
 	type_according_risk_reward = models.PositiveSmallIntegerField('тип по соотношению риска/прибыли', choices=TYPE_RISK)
 	focus = models.PositiveSmallIntegerField('фокус', choices=FOCUS)
-	sector_blacklist = models.TextField(blank=True) 
+	sector_blacklist = models.TextField(blank=True)
+	shares_blacklist = models.TextField(blank=True) 
 	types_assets = models.TextField()
 	ETF = models.PositiveSmallIntegerField(choices=ETF)
 	investment_strategy = models.PositiveSmallIntegerField('инвестиционная стратегия', choices=INVESTMENT_STRATEGY)
@@ -83,6 +84,9 @@ class Portfolio(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	def get_currency(self):
+		return CURRENCY[self.currency][1]
 
 	def get_type_investor(self):
 		return TYPE_INVESTOR[self.type_investor][1]

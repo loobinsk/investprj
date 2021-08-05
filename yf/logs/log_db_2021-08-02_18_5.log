@@ -1,0 +1,39 @@
+[INFO] - 2021-08-02 18:05:02,303 - 27 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,001 - 27 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,001 - 27 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,589 - The database is cleaned
+[INFO] - 2021-08-02 18:05:04,589 - The database is cleaned
+[INFO] - 2021-08-02 18:05:04,651 - 0 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,651 - 0 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,652 - All tickers are deleted from the DB
+[INFO] - 2021-08-02 18:05:04,652 - All tickers are deleted from the DB
+[INFO] - 2021-08-02 18:05:04,701 - 33 tickers inserted in DB
+[INFO] - 2021-08-02 18:05:04,701 - 33 tickers inserted in DB
+[INFO] - 2021-08-02 18:05:04,702 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,702 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:05:04,702 - Reading data from Yahoo Finance
+[INFO] - 2021-08-02 18:05:04,702 - Reading data from Yahoo Finance
+[INFO] - 2021-08-02 18:05:10,955 - YFinance data load call. Start date: 2016-08-28. Finish date: 2021-08-02
+[INFO] - 2021-08-02 18:05:10,955 - YFinance data load call. Start date: 2016-08-28. Finish date: 2021-08-02
+[INFO] - 2021-08-02 18:05:10,959 - Inserting data into the DB
+[INFO] - 2021-08-02 18:05:10,959 - Inserting data into the DB
+[INFO] - 2021-08-02 18:08:06,545 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:08:06,545 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:08:36,940 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:08:36,940 - 33 tickers got from the DB
+[INFO] - 2021-08-02 18:08:37,776 - The database is cleaned
+[INFO] - 2021-08-02 18:08:37,776 - The database is cleaned
+[INFO] - 2021-08-02 18:08:37,834 - 0 tickers got from the DB
+[INFO] - 2021-08-02 18:08:37,834 - 0 tickers got from the DB
+[INFO] - 2021-08-02 18:08:37,835 - All tickers are deleted from the DB
+[INFO] - 2021-08-02 18:08:37,835 - All tickers are deleted from the DB
+[INFO] - 2021-08-02 18:08:37,917 - 26 tickers inserted in DB
+[INFO] - 2021-08-02 18:08:37,917 - 26 tickers inserted in DB
+[INFO] - 2021-08-02 18:08:37,917 - 26 tickers got from the DB
+[INFO] - 2021-08-02 18:08:37,917 - 26 tickers got from the DB
+[INFO] - 2021-08-02 18:08:37,918 - Reading data from Yahoo Finance
+[INFO] - 2021-08-02 18:08:37,918 - Reading data from Yahoo Finance
+[INFO] - 2021-08-02 18:08:43,215 - YFinance data load call. Start date: 2016-08-28. Finish date: 2021-08-02
+[INFO] - 2021-08-02 18:08:43,215 - YFinance data load call. Start date: 2016-08-28. Finish date: 2021-08-02
+[INFO] - 2021-08-02 18:08:43,218 - Inserting data into the DB
+[INFO] - 2021-08-02 18:08:43,218 - Inserting data into the DB

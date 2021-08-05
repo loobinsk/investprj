@@ -3,6 +3,7 @@ from portfolio.models import Ticker
 from portfolio.models import TickerValue
 from portfolio.models import Stock
 from datetime import datetime, timedelta
+from .course_control import Currency
 
 
 class Logic():
@@ -15,10 +16,12 @@ class Logic():
 		investmen = InvestmentAdvisor.objects.get(user=request.user)
 		all_portfolio = Portfolio.objects.filter(client__investmen=investmen).all()
 
-	def get_portfolio_value(self, portfolio):
+	def get_portfolio_value(self, portfolio, dollars=False):
 		''' получить начальную стоимость портфеля '''
+		cr = Currency()
 		get_shares_portfolio = Stock.objects.filter(portfolio=portfolio).all()
 		count = 0
+
 
 		for i in get_shares_portfolio:
 			try:
@@ -34,6 +37,10 @@ class Logic():
 			i.value_share = total_count
 			i.save()
 			count += i.value_share
+
+		if dollars == False:
+			if portfolio.currency == 0:
+				count = round(count*cr.get_currency_price(), 2)
 
 		return int(count)
 
@@ -94,8 +101,15 @@ class Logic():
 			True = проценты
 			False = число
 		 '''
+		cr = Currency()
 		total_return_of_all_shares = 0
 		portfolio_start_value = self.get_portfolio_value(portfolio)
+		print(portfolio_start_value)
+		print(cr.get_currency_price())
+		if portfolio.currency == 0:
+			portfolio_start_value = round(portfolio_start_value/float(cr.get_currency_price()),2)
+
+		print(portfolio_start_value)
 
 		for i in portfolio.stock.all():
 			date = portfolio.create_date - timedelta(self.days)
@@ -115,11 +129,14 @@ class Logic():
 			True = проценты
 			False = число
 		'''
+		cr = Currency()
 		total_percentag = None
 		initial_portfolio_value = 0
 		all_portfolio_profit = 0
 		for i in portfolios:
 			get_portfolio_value = self.get_portfolio_value(i)
+			if i.currency == 0:
+				get_portfolio_value = round(get_portfolio_value/float(cr.get_currency_price()),2)
 			initial_portfolio_value += get_portfolio_value
 
 			get_portfolio_profit = self.get_profitability_portfolio(i, False)
@@ -137,10 +154,10 @@ class Logic():
 
 
 
-	def actual_price_portfolio(self, portfolio):
+	def actual_price_portfolio(self, portfolio, dollars=False):
 		''' получить актуальную стоимость портфеля на сегодня '''
 		portfolio_profit = self.get_profitability_portfolio(portfolio=portfolio, percentag_or_profit=False)
-		portfolio_start_value = self.get_portfolio_value(portfolio)
+		portfolio_start_value = self.get_portfolio_value(portfolio, dollars)
 
 		total_value = portfolio_start_value+portfolio_profit
 
@@ -183,7 +200,8 @@ class Logic():
 				if new_dict[k] == i:
 					sorted_dict[k] = new_dict[k]
 
-		sorted_dict['Прочее'] = sorted_dict.pop('Прочее')
+		if 'Прочее' in sorted_dict.keys():
+			sorted_dict['Прочее'] = sorted_dict.pop('Прочее')
 
 		return sorted_dict
 

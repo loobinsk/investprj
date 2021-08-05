@@ -131,7 +131,7 @@
                             <div class="card-block">
                                 <div class="target-cost-card__top d-flex align-items-center justify-content-between">
                                     <p class="small-heading">Целевая стоимость</p>
-                                    <p class="huge-text">{{ actual_price }}₽</p>
+                                    <p class="huge-text">{{ actual_price }}{% if portfolio.currency == 1 %}₽{% else %}${% endif %}</p>
                                 </div>
                                 <p class="target-cost-card__caption text-right">35.71% to Target Value</p>
                                 <div class="progress-block">
@@ -407,7 +407,7 @@
                                             <td>Name</td>
                                             <td>{{ i.ticker.sector }}</td>
                                             <td>{{ quantity }}</td>
-                                            <td>{{ price }}₽</td>
+                                            <td>{{ price }}{% if portfolio.currency == 1 %}₽{% else %}${% endif %}</td>
                                             <td>{{ i.share }}%</td>
                                         </tr>
                                     {% endfor %}

@@ -39,8 +39,8 @@ def add_data_for_all_shares_to_the_internal_database(request):
 	yf = YFinance()
 	cur = Currency()
 
-	yf.del_all_from_db()
-	yf.del_all_tickers()
+	# yf.del_all_from_db()
+	# yf.del_all_tickers()
 
 	list_sectors_rf_shares = []
 	for i in rf_sectors.split(','):
@@ -73,17 +73,10 @@ def add_data_for_all_shares_to_the_internal_database(request):
 		if i not in BLACK_LIST:
 			listt.append(i)
 
-	yf.add_tickers(listt)
-	yf.initial_data_load(days=10)
+	# yf.add_tickers(listt)
+	# yf.initial_data_load(days=5)
 	data = yf.get_data()
 	price = cur.get_currency_price()
-
-	price_list = []
-	for i in price.split(','):
-		price_list.append(i)
-
-	price = f'{price_list[0]}.{price_list[1]}'
-	price = float(price)
 
 	for i in data:
 		new_count = float(i[3])
@@ -119,7 +112,7 @@ def get_algorithm(request):
 	yf = YFinance()
 	yf.del_all_from_db()
 	yf.del_all_tickers()
-	tickers = 'PG,DIS,BAC,ADBE,CMCSA,NKE,XOM,ORCL,NFLX,'
+	tickers = 'IMOEX.ME, ^GSPC,)'
 	listt = []
 	for i in tickers.split(','):
 		listt.append(i)
@@ -127,27 +120,4 @@ def get_algorithm(request):
 	yf.add_tickers(listt)
 	yf.initial_data_load()
 	yf.__del__()
-
-	pf = prtf()
-
-	pf.load_data()
-	pf.exclude_loss()
-	portfolio = pf.generate_portfolios(n=1, strategy='diversification', risk=50)
-
-
-	total_result = {}
-	shares = []
-	tickers = []
-	for i in portfolio[0]:
-		shares.append(i)
-	for i in pf.prof_df:
-		tickers.append(i)
-
-	count_share = 0
-	for i in tickers:
-		if float(shares[count_share]) != 0.0:
-			total_result[i] = float(shares[count_share])
-		count_share += 1
-
-	pf.__del__()
 	return HttpResponse('все гуд')

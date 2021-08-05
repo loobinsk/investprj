@@ -93,7 +93,7 @@
                             <div class="card-block">
                                 <div class="target-cost-card__top d-flex align-items-center justify-content-between">
                                     <p class="small-heading">Целевая стоимость</p>
-                                    <p class="huge-text">{{ target_portfolio_value }}₽</p>
+                                    <p class="huge-text">{{ target_portfolio_value }}{% if portfolio.currency == 1 %}₽{% else %}${% endif %}</p>
                                 </div>
                                 <p class="target-cost-card__caption text-right">35.71% to Target Value</p>
                                 <div class="progress-block">

@@ -259,7 +259,7 @@
                                                 </td>
                                                 <td>{{ i.maximum_allowable_drawdown }}%</td>
                                                 <td>None</td>
-                                                <td>{{ active }}₽</td>
+                                                <td>{{ active }}{% if i.currency == 0 %}${% else %}₽{% endif %}</td>
                                                 <td>
                                                     <span class="badge bg-danger">5</span>
                                                 </td>
@@ -355,7 +355,7 @@
                                                 </td>
                                                 <td>{{ i.maximum_allowable_drawdown }}%</td>
                                                 <td>None</td>
-                                                <td>{{ active }}₽</td>
+                                                <td>{{ active }}{% if i.currency == 0 %}${% else %}₽{% endif %}</td>
                                                 <td>
                                                     <span class="badge bg-danger">5</span>
                                                 </td>

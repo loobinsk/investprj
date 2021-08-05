@@ -1,0 +1,29 @@
+[INFO] - 2021-08-05 05:43:26,682 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:26,759 - The database is cleaned
+[INFO] - 2021-08-05 05:43:26,825 - 0 tickers got from the DB
+[INFO] - 2021-08-05 05:43:26,826 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 05:43:26,915 - 509 tickers inserted in DB
+[INFO] - 2021-08-05 05:43:26,916 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:26,916 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 05:43:30,682 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,682 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,767 - The database is cleaned
+[INFO] - 2021-08-05 05:43:30,767 - The database is cleaned
+[INFO] - 2021-08-05 05:43:30,825 - 0 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,825 - 0 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,825 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 05:43:30,825 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 05:43:30,915 - 509 tickers inserted in DB
+[INFO] - 2021-08-05 05:43:30,915 - 509 tickers inserted in DB
+[INFO] - 2021-08-05 05:43:30,915 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,915 - 508 tickers got from the DB
+[INFO] - 2021-08-05 05:43:30,916 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 05:43:30,916 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 05:46:13,436 - YFinance data load call. Start date: 2021-07-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 05:46:13,436 - YFinance data load call. Start date: 2021-07-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 05:46:13,516 - YFinance data load call. Start date: 2021-07-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 05:46:13,516 - YFinance data load call. Start date: 2021-07-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 05:46:13,529 - Inserting data into the DB
+[INFO] - 2021-08-05 05:46:13,529 - Inserting data into the DB
+[INFO] - 2021-08-05 05:46:13,556 - Inserting data into the DB
+[INFO] - 2021-08-05 05:46:13,556 - Inserting data into the DB

@@ -10,7 +10,7 @@ LOGOUT_URL = reverse_lazy('logout')
 
 SECRET_KEY = 'fsv&g8hu0l59_5*8q136^@ph58j-o%h2spoul42$4!=2z##m%*'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['185.117.155.250']
 
 
 INSTALLED_APPS = [
@@ -62,8 +62,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbms_db',
+        'USER' : 'danil',
+        'PASSWORD' : 'ezkatka03',
+        'HOST' : '127.0.0.1',
+        'PORT' : '5432',
     }
 }
 

@@ -3,8 +3,9 @@ from portfolio.models import Ticker
 from portfolio.models import TickerValue
 from portfolio.models import Stock
 from datetime import datetime, timedelta
-from .course_control import Currency
 
+from yf import YFinance, portfolio
+from .course_control import Currency
 
 class Logic():
 
@@ -104,12 +105,8 @@ class Logic():
 		cr = Currency()
 		total_return_of_all_shares = 0
 		portfolio_start_value = self.get_portfolio_value(portfolio)
-		print(portfolio_start_value)
-		print(cr.get_currency_price())
 		if portfolio.currency == 0:
 			portfolio_start_value = round(portfolio_start_value/float(cr.get_currency_price()),2)
-
-		print(portfolio_start_value)
 
 		for i in portfolio.stock.all():
 			date = portfolio.create_date - timedelta(self.days)
@@ -174,7 +171,6 @@ class Logic():
 
 	def get_prc(self, _list):
 		''' получить словарь отфильтрованных секторов 
-			
 			'''
 		sectors_dict = {i:_list.count(i) for i in _list}
 		total_value = 0
@@ -206,8 +202,47 @@ class Logic():
 		return sorted_dict
 
 
+	# def profit_index(self, ticker):
+	# 	yf = YFinance()
+	# 	yf.del_all_from_db()
+	# 	yf.del_all_tickers()
+	# 	yf.add_tickers(ticker)
+	# 	yf.initial_data_load()
+	# 	data = yf.get_data()
+	# 	old_date = datetime.now() - timedelta(5*360)
+	# 	old_date = old_date.strftime('%Y-%m-%d')
+	# 	now_date = datetime.now() - timedelta(1)
+	# 	now_date = now_date.strftime('%Y-%m-%d')
+	# 	current_value = None
+	# 	last_value = None
+	# 	for i in data:
+	# 		if i[2] == now_date:
+	# 			last_value = i[3]
 
+	# 		if i[2] == old_date:
+	# 			current_value = i[3]
 
+	# 	value = last_value - current_value
+	# 	percentage = value/current_value*100
+	# 	percentage = percentage/2
+	# 	print(percentage)
+	# 	return round(percentage, 2)
+	
+	def profit_index(self, ticker, strategy):
+		yf = YFinance()
+		pf = portfolio.Portfolio()
+		yf.del_all_from_db()
+		yf.del_all_tickers()
+		yf.add_tickers(ticker)
+		yf.initial_data_load()
+		pf.load_data()
+		pf.exclude_loss()
+		shares = pf.generate_shares2(strategy=strategy)
+		profit = pf.get_portfolio_profitability(shares)
+
+		profit = profit / 2
+
+		return profit
 
 
 

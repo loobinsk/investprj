@@ -33,11 +33,11 @@ from .ticker_list import BLACK_LIST
 
 @login_required
 def index(request):
+	logic = Logic()
 	investmen = InvestmentAdvisor.objects.get(user=request.user)
 	all_clients = Client.objects.filter(investmen=investmen).all()
 	all_portfolio = Portfolio.objects.filter(client__investmen=investmen, active=True).all()
 
-	logic = Logic()
 	total_shares_value = round(logic.get_all_actual_price_portfolio(all_portfolio), 2)
 	
 	client_list = []
@@ -101,8 +101,32 @@ def portfolio_view(request, pk):
 		new_list.append(color)
 		sectors_list.append(new_list)
 
+
+	actives = []
+	for i in stocks:
+		if i.ticker.name in rf_shares:
+			actives.append('Акции российских компаний')
+		else:
+			actives.append('Международные акции')
+
+
+	actives_dict = lg.get_prc(actives)
+	actives_list = []
+	color_count = 0
+	for key, value in actives_dict.items():
+		new_list = []
+		width = value*4.28
+		color_count += 70
+		color = f'37, {color_count}, 219'
+		new_list.append(key)
+		new_list.append(round(value, 2))
+		new_list.append(width)
+		new_list.append(color)
+		actives_list.append(new_list)
+
 	template = 'view.html'
 	context = {
+		'actives_list': actives_list,
 		'sectors_list': sectors_list,
 		'target_portfolio_value': target_portfolio_value,
 		'stocks': stocks,
@@ -113,6 +137,7 @@ def portfolio_view(request, pk):
 def create_portfolio(request):
 	yf = YFinance()
 	pf = prtf()
+	lg = Logic()
 	investmen = InvestmentAdvisor.objects.get(user=request.user)
 	all_clients = Client.objects.filter(investmen=investmen)
 	all_stocks = Stock.objects.all()
@@ -308,19 +333,37 @@ def create_portfolio(request):
 				_list.append(i.name)
 		except:
 			portfolio.delete()
-			return HttpResponse('к сожалению, с заданными фильтрами недостаточно акций для формирования портфеля. Попробуйте создать портфель с другими настройками.')
+			return HttpResponse('к сожалению, с заданными фильтрами недостаточно акций для формирования портфеля. Попробуйте создать портфель с другими фильтрами.')
 
 
+		profit = ''
+		total_portfolio = ''
 
-		yf.del_all_from_db()
-		yf.del_all_tickers()
-		yf.add_tickers(_list)
-		yf.initial_data_load()
-		yf.__del__()
+		if focus_potfolio == 1:
+			if currency == 1:
+				profit = lg.profit_index('IMOEX.ME', strategy=invest_strategy)
 
-		pf.load_data()
-		pf.exclude_loss()
-		total_portfolio = pf.generate_portfolios(n=1, strategy=invest_strategy, risk=maximum_allowable_drawdown)
+			elif currency == 0:
+				profit = lg.profit_index('^GSPC', strategy=invest_strategy)
+
+			yf.del_all_from_db()
+			yf.del_all_tickers()
+			yf.add_tickers(_list)
+			yf.initial_data_load()
+			yf.__del__()
+
+			pf.load_data()
+			pf.exclude_loss()
+			total_portfolio = pf.generate_portfolios(n=1, strategy=invest_strategy, profitability=profit)
+		elif focus_potfolio == 0:
+			yf.del_all_from_db()
+			yf.del_all_tickers()
+			yf.add_tickers(_list)
+			yf.initial_data_load()
+			yf.__del__()
+			pf.load_data()
+			pf.exclude_loss()
+			total_portfolio = pf.generate_portfolios(n=1, strategy=invest_strategy, risk=portfolio.maximum_allowable_drawdown)
 
 		total_result = {}
 		shares = []
@@ -386,6 +429,29 @@ def portfolio_detail(request, pk):
 		new_list.append(color)
 		sectors_list.append(new_list)
 
+
+	actives = []
+	for i in shares:
+		if i.ticker.name in rf_shares:
+			actives.append('Акции российских компаний')
+		else:
+			actives.append('Международные акции')
+
+
+	actives_dict = lg.get_prc(actives)
+	actives_list = []
+	color_count = 0
+	for key, value in actives_dict.items():
+		new_list = []
+		width = value*4.28
+		color_count += 70
+		color = f'37, {color_count}, 219'
+		new_list.append(key)
+		new_list.append(round(value, 2))
+		new_list.append(width)
+		new_list.append(color)
+		actives_list.append(new_list)
+
 	actual_price = round(lg.actual_price_portfolio(portfolio, True), 2)
 	all_stocks = Stock.objects.filter(portfolio=portfolio)
 
@@ -405,6 +471,7 @@ def portfolio_detail(request, pk):
 
 	template = 'portfolio_detail.html'
 	context = {
+		'actives_list': actives_list,
 		'sectors_list': sectors_list,
 		'shares_list': shares_list,
 		'portfolio': portfolio,
@@ -412,3 +479,9 @@ def portfolio_detail(request, pk):
 		'actual_price': actual_price,
 	}	
 	return render(request, template, context)
+
+def delete_portfolio(request, pk):
+	portfolio = Portfolio.objects.get(pk=pk)
+	client = portfolio.client.pk
+	portfolio.delete()
+	return redirect(f'/client-overview/{client}')

@@ -11,7 +11,7 @@ from random import randrange
 
 
 class Portfolio:
-    ITERATION_LIMIT = 1000
+    ITERATION_LIMIT = 1000000000
     GENERATED_PORTFOLIOS = 100
 
     def __init__(self):
@@ -167,6 +167,34 @@ class Portfolio:
         np_cov = self.covariance(self._prof_df)
         prod_1 = np.dot(np_shares, np_cov)
         return float(np.sqrt(np.dot(prod_1, np_shares)))
+
+    def generate_shares2(self, strategy=None) -> np.ndarray:
+        """
+        Generates shares due to given strategy
+        :param strategy: None(default)/growth/diversification
+        :return: NumPy array with shares
+        """
+
+        if strategy == 0:
+            min_limit = 0.06
+            high_limit = 0.15
+        elif strategy == 1:
+            min_limit = 0.10
+            high_limit = 0.25
+        elif strategy == 2:
+            min_limit = 0.02
+            high_limit = 0.07
+        else:
+            raise ValueError('Incorrect strategy type')
+
+        shares = np.zeros(self.portfolio_size)
+        shares[0] = 1
+
+
+        shares = [randrange(int(min_limit*100), int(high_limit*100)) for _ in range(self.portfolio_size)]
+        shares = shares / np.linalg.norm(shares, ord=1)
+        print(shares)
+        return shares
 
     def generate_shares(self, strategy=None) -> np.ndarray:
         """

@@ -39,8 +39,8 @@ def add_data_for_all_shares_to_the_internal_database(request):
 	yf = YFinance()
 	cur = Currency()
 
-	# yf.del_all_from_db()
-	# yf.del_all_tickers()
+	yf.del_all_from_db()
+	yf.del_all_tickers()
 
 	list_sectors_rf_shares = []
 	for i in rf_sectors.split(','):
@@ -73,8 +73,8 @@ def add_data_for_all_shares_to_the_internal_database(request):
 		if i not in BLACK_LIST:
 			listt.append(i)
 
-	# yf.add_tickers(listt)
-	# yf.initial_data_load(days=5)
+	yf.add_tickers(listt)
+	yf.initial_data_load(days=5)
 	data = yf.get_data()
 	price = cur.get_currency_price()
 

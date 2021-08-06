@@ -273,51 +273,17 @@
                                             <div id="donutChart2"></div>
                                         </div>
                                         <div class="graph-options scrollbar-inner">
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Cash</p>
-                                                    <p class="target-cost-card__caption">3,50%</p>
+                                            {% for sector, percentage, value, color in actives_list %}
+                                                <div class="progress-block">
+                                                    <div class="progress-block__top d-flex align-items-center justify-content-between">
+                                                        <p class="target-cost-card__caption">{{ sector }}</p>
+                                                        <p class="target-cost-card__caption">{{ percentage }}%</p>
+                                                    </div>
+                                                    <div class="progress-block__line">
+                                                        <div class="progress-block__percent" style="width: {{ value }}px; background-color: rgb({{ color  }});"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent" style="width: 120px;"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">US Equities</p>
-                                                    <p class="target-cost-card__caption">40,01%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_2"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">International Equeties</p>
-                                                    <p class="target-cost-card__caption">29,99%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_3"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
-                                            <div class="progress-block">
-                                                <div class="progress-block__top d-flex align-items-center justify-content-between">
-                                                    <p class="target-cost-card__caption">Treasary Inilation Protected Securities</p>
-                                                    <p class="target-cost-card__caption">26,50%</p>
-                                                </div>
-                                                <div class="progress-block__line">
-                                                    <div class="progress-block__percent progress-block__percent_4"></div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -649,13 +615,13 @@
         },
         data: {
             columns: [
-                {% for sector, percentage, value, color in sectors_list %}
+                {% for sector, percentage, value, color in actives_list %}
                 ["{{ sector }}", {{ percentage }}],
                 {% endfor %}
             ],
             type: "donut",
             colors: {
-                {% for sector, percentage, value, color in sectors_list %}
+                {% for sector, percentage, value, color in actives_list %}
                 '{{ sector }}': "rgb({{color}})",
                 {% endfor %}
             } // for ESM specify as: donut()

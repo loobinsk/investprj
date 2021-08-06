@@ -18,6 +18,7 @@ urlpatterns = [
     path('client-overview/', client_views.clients_list, name='clients-list'),
     path('portfolio-view/<pk>/', views.portfolio_view, name='portfolio-view'),
     path('portfolio_detail/<pk>/', views.portfolio_detail, name='portfolio_detail'),
+    path('portfolio_delete/<pk>/', views.delete_portfolio, name='delete_portfolio'),
 
     #path('portfolio-overview', views.portfolio_detail, name='portfolio-overview'),
     path('change-pass/', account_views.change_pass, name='change-pass'),

@@ -55,7 +55,66 @@
                 </div>
             </div>
         </nav>
-        {% include 'menu.html' %}
+        <div class="sidebar-fixed position-fixed">
+            <a href="#" class="logo-wrapper waves-effect">
+                <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4691 10.9203L14.9471 0H21L13.4338 15H7.50441L0 0H6.00662L10.4691 10.9203Z" fill="#32A7D4" />
+                </svg>
+            </a>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item waves-effect sidebar-toggler">
+                    <svg class="sidebar-btn-open" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1H16" stroke="black" />
+                        <path d="M0 6H16" stroke="black" />
+                        <path d="M0 11H16" stroke="black" />
+                    </svg>
+                    <span class="sidebar-btn-close">
+                        <img src="img/cross.png" alt="">
+                    </span>
+                </a>
+                <a href="" class="list-group-item waves-effect" data-mdb-toggle="modal" data-mdb-target="#exitModal">
+                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5 9.50004C15.4342 9.50042 15.369 9.4878 15.3081 9.46292C15.2471 9.43804 15.1917 9.40138 15.145 9.35503L8.00001 2.20503L0.855014 9.35503C0.759363 9.43695 0.636325 9.47975 0.510487 9.47489C0.384649 9.47003 0.265279 9.41786 0.176232 9.32882C0.0871848 9.23977 0.0350186 9.1204 0.030158 8.99456C0.0252975 8.86872 0.0681005 8.74569 0.150014 8.65003L7.65001 1.15004C7.74369 1.05691 7.87042 1.00464 8.00251 1.00464C8.13461 1.00464 8.26133 1.05691 8.35501 1.15004L15.855 8.65003C15.9238 8.72023 15.9704 8.80914 15.989 8.90566C16.0075 9.00219 15.9972 9.10204 15.9593 9.19273C15.9214 9.28343 15.8577 9.36095 15.776 9.41561C15.6943 9.47026 15.5983 9.49963 15.5 9.50004Z" fill="#2E364A" />
+                        <path d="M8 3.89502L2 9.91502V16C2 16.2652 2.10536 16.5196 2.29289 16.7071C2.48043 16.8947 2.73478 17 3 17H6.5V12H9.5V17H13C13.2652 17 13.5196 16.8947 13.7071 16.7071C13.8946 16.5196 14 16.2652 14 16V9.88002L8 3.89502Z" fill="#2E364A" />
+                    </svg>
+                    <span class="sidebar-open-text">Главная</span>
+                </a>
+                <a href="" class="list-group-item waves-effect" data-mdb-toggle="modal" data-mdb-target="#exitModal">
+                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" width="12" height="15" rx="1" fill="#2E3139" />
+                        <circle cx="10.5" cy="12.2" r="4" fill="#2E3139" stroke="white" />
+                        <path d="M8 12.2H13M10.5 9.70001V14.7" stroke="white" />
+                    </svg>
+                    <span class="sidebar-open-text">Создать портфель</span>
+                </a>
+                <a href="" class="list-group-item waves-effect now" data-mdb-toggle="modal" data-mdb-target="#exitModal">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0-973477)">
+                            <path d="M12 0H4C3.46957 0 2.96086 0.210714 2.58579 0.585786C2.21071 0.960859 2 1.46957 2 2V14C2 14.5304 2.21071 15.0391 2.58579 15.4142C2.96086 15.7893 3.46957 16 4 16H12C12.5304 16 13.0391 15.7893 13.4142 15.4142C13.7893 15.0391 14 14.5304 14 14V2C14 1.46957 13.7893 0.960859 13.4142 0.585786C13.0391 0.210714 12.5304 0 12 0V0ZM11 7C11 7.79565 10.6839 8.55871 10.1213 9.12132C9.55871 9.68393 8.79565 10 8 10C7.20435 10 6.44129 9.68393 5.87868 9.12132C5.31607 8.55871 5 7.79565 5 7C5 6.20435 5.31607 5.44129 5.87868 4.87868C6.44129 4.31607 7.20435 4 8 4C8.79565 4 9.55871 4.31607 10.1213 4.87868C10.6839 5.44129 11 6.20435 11 7ZM8 11C10.623 11 12.146 11.826 13 12.755V14C13 14.2652 12.8946 14.5196 12.7071 14.7071C12.5196 14.8946 12.2652 15 12 15H4C3.73478 15 3.48043 14.8946 3.29289 14.7071C3.10536 14.5196 3 14.2652 3 14V12.755C3.854 11.825 5.377 11 8 11Z" fill="#2E364A" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0-973477">
+                                <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span class="sidebar-open-text">Клиенты</span>
+                </a>
+                <a href="" class="list-group-item waves-effect" data-mdb-toggle="modal" data-mdb-target="#exitModal">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.405 1.05C8.992 -0.35 7.008 -0.35 6.595 1.05L6.495 1.39C6.43329 1.59959 6.32545 1.79272 6.17939 1.95521C6.03333 2.11771 5.85275 2.24544 5.6509 2.32906C5.44904 2.41268 5.23103 2.45006 5.01285 2.43846C4.79466 2.42685 4.58185 2.36656 4.39 2.262L4.08 2.092C2.797 1.394 1.394 2.797 2.093 4.079L2.262 4.39C2.708 5.21 2.285 6.231 1.39 6.495L1.05 6.595C-0.35 7.008 -0.35 8.992 1.05 9.405L1.39 9.505C1.59959 9.56671 1.79272 9.67455 1.95521 9.82061C2.11771 9.96667 2.24544 10.1472 2.32906 10.3491C2.41268 10.551 2.45006 10.769 2.43846 10.9872C2.42685 11.2053 2.36656 11.4182 2.262 11.61L2.092 11.92C1.394 13.203 2.797 14.606 4.079 13.907L4.39 13.738C4.58185 13.6334 4.79466 13.5731 5.01285 13.5615C5.23103 13.5499 5.44904 13.5873 5.6509 13.6709C5.85275 13.7546 6.03333 13.8823 6.17939 14.0448C6.32545 14.2073 6.43329 14.4004 6.495 14.61L6.595 14.95C7.008 16.35 8.992 16.35 9.405 14.95L9.505 14.61C9.56671 14.4004 9.67455 14.2073 9.82061 14.0448C9.96667 13.8823 10.1472 13.7546 10.3491 13.6709C10.551 13.5873 10.769 13.5499 10.9872 13.5615C11.2053 13.5731 11.4182 13.6334 11.61 13.738L11.92 13.908C13.203 14.606 14.606 13.203 13.907 11.921L13.738 11.61C13.6334 11.4182 13.5731 11.2053 13.5615 10.9872C13.5499 10.769 13.5873 10.551 13.6709 10.3491C13.7546 10.1472 13.8823 9.96667 14.0448 9.82061C14.2073 9.67455 14.4004 9.56671 14.61 9.505L14.95 9.405C16.35 8.992 16.35 7.008 14.95 6.595L14.61 6.495C14.4004 6.43329 14.2073 6.32545 14.0448 6.17939C13.8823 6.03333 13.7546 5.85275 13.6709 5.6509C13.5873 5.44904 13.5499 5.23103 13.5615 5.01285C13.5731 4.79466 13.6334 4.58185 13.738 4.39L13.908 4.08C14.606 2.797 13.203 1.394 11.921 2.093L11.61 2.262C11.4182 2.36656 11.2053 2.42685 10.9872 2.43846C10.769 2.45006 10.551 2.41268 10.3491 2.32906C10.1472 2.24544 9.96667 2.11771 9.82061 1.95521C9.67455 1.79272 9.56671 1.59959 9.505 1.39L9.405 1.05ZM8 10.93C7.22292 10.93 6.47766 10.6213 5.92818 10.0718C5.3787 9.52234 5.07 8.77708 5.07 8C5.07 7.22292 5.3787 6.47766 5.92818 5.92818C6.47766 5.3787 7.22292 5.07 8 5.07C8.77682 5.07 9.52182 5.37859 10.0711 5.92788C10.6204 6.47718 10.929 7.22218 10.929 7.999C10.929 8.77582 10.6204 9.52082 10.0711 10.0701C9.52182 10.6194 8.77682 10.928 8 10.928V10.93Z" fill="#2E364A" />
+                    </svg>
+                    <span class="sidebar-open-text">Настройки</span>
+                </a>
+                <a href="" class="list-group-item waves-effect"data-mdb-toggle="modal" data-mdb-target="#exitModal">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.3546 7.00006L11.6046 4.00006L11.6046 6.25006L6.35455 6.25006L6.35455 7.75006L11.6046 7.75006L11.6046 10.0001L15.3546 7.00006Z" fill="#2E364A" />
+                        <path d="M2.55556 1.5L2.55556 13.5L8 13.5L8 15L2.55556 15C1.69767 15 1 14.3273 1 13.5L1 1.5C1 0.67275 1.69767 1.48716e-07 2.55555 1.28472e-07L8 0L8 1.5L2.55556 1.5Z" fill="#2E364A" />
+                    </svg>
+                    <span class="sidebar-open-text">Выход</span>
+                </a>
+            </div>
+        </div>
     </header>
     <main class="content">
         <div class="container">
@@ -197,7 +256,7 @@
                                             <div id="donutChart2"></div>
                                         </div>
                                         <div class="graph-options scrollbar-inner">
-                                           {% for sector, percentage, value, color in sectors_list %}
+                                           {% for sector, percentage, value, color in actives_list %}
                                                 <div class="progress-block">
                                                     <div class="progress-block__top d-flex align-items-center justify-content-between">
                                                         <p class="target-cost-card__caption">{{ sector }}</p>
@@ -605,8 +664,8 @@
                 <div class="modal-body">
                     <p class="modal-medium-text">Сохраните портфель, чтобы иметь возможность отредактировать его позже.</p>
                     <div class="modal-btns d-flex align-items-center">
-                        <button class="btn btn-primary">Сохранить черновик</button>
-                        <button class="btn btn_off btn-type-link discard-changes">Выйти без сохранения</button>
+                        <button class="btn btn-primary"><a style="color: white;" href="/client-overview/{{ portfolio.client.pk }}/">Сохранить черновик</a></button>
+                        <button class="btn btn_off btn-type-link" style="margin-left: 20px;"><a href="{% url 'delete_portfolio' portfolio.pk %}">Выйти без сохранения</a></button>
                     </div>
                 </div>
             </div>
@@ -692,13 +751,13 @@
         },
         data: {
             columns: [
-                {% for sector, percentage, value, color in sectors_list %}
+                {% for sector, percentage, value, color in actives_list %}
                 ["{{ sector }}", {{ percentage }}],
                 {% endfor %}
             ],
             type: "donut",
             colors: {
-                {% for sector, percentage, value, color in sectors_list %}
+                {% for sector, percentage, value, color in actives_list %}
                 '{{ sector }}': "rgb({{color}})",
                 {% endfor %}
             } // for ESM specify as: donut()

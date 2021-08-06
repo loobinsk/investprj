@@ -1,0 +1,35 @@
+[INFO] - 2021-08-05 11:58:55,882 - 8 tickers got from the DB
+[INFO] - 2021-08-05 11:58:55,983 - 8 tickers got from the DB
+[INFO] - 2021-08-05 11:58:55,983 - 8 tickers got from the DB
+[INFO] - 2021-08-05 11:58:56,192 - The database is cleaned
+[INFO] - 2021-08-05 11:58:56,192 - The database is cleaned
+[INFO] - 2021-08-05 11:58:56,248 - 0 tickers got from the DB
+[INFO] - 2021-08-05 11:58:56,248 - 0 tickers got from the DB
+[INFO] - 2021-08-05 11:58:56,248 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 11:58:56,248 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 11:58:56,298 - 1 tickers inserted in DB
+[INFO] - 2021-08-05 11:58:56,298 - 1 tickers inserted in DB
+[INFO] - 2021-08-05 11:58:56,299 - 1 tickers got from the DB
+[INFO] - 2021-08-05 11:58:56,299 - 1 tickers got from the DB
+[INFO] - 2021-08-05 11:58:56,299 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 11:58:56,299 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 11:58:57,465 - YFinance data load call. Start date: 2016-08-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 11:58:57,465 - YFinance data load call. Start date: 2016-08-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 11:58:57,466 - Inserting data into the DB
+[INFO] - 2021-08-05 11:58:57,466 - Inserting data into the DB
+[INFO] - 2021-08-05 11:58:57,630 - The database is cleaned
+[INFO] - 2021-08-05 11:58:57,630 - The database is cleaned
+[INFO] - 2021-08-05 11:58:57,688 - 0 tickers got from the DB
+[INFO] - 2021-08-05 11:58:57,688 - 0 tickers got from the DB
+[INFO] - 2021-08-05 11:58:57,688 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 11:58:57,688 - All tickers are deleted from the DB
+[INFO] - 2021-08-05 11:58:57,738 - 11 tickers inserted in DB
+[INFO] - 2021-08-05 11:58:57,738 - 11 tickers inserted in DB
+[INFO] - 2021-08-05 11:58:57,738 - 11 tickers got from the DB
+[INFO] - 2021-08-05 11:58:57,738 - 11 tickers got from the DB
+[INFO] - 2021-08-05 11:58:57,738 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 11:58:57,738 - Reading data from Yahoo Finance
+[INFO] - 2021-08-05 11:58:59,950 - YFinance data load call. Start date: 2016-08-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 11:58:59,950 - YFinance data load call. Start date: 2016-08-31. Finish date: 2021-08-05
+[INFO] - 2021-08-05 11:58:59,952 - Inserting data into the DB
+[INFO] - 2021-08-05 11:58:59,952 - Inserting data into the DB

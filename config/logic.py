@@ -68,9 +68,13 @@ class Logic():
 			try:
 				date = date - timedelta(1)
 				ticker_value_at_start_date = TickerValue.objects.get(date=date, ticker=ticker)
-			except TickerValue.DoesNotExist: 
-				date = date - timedelta(2)
-				ticker_value_at_start_date = TickerValue.objects.get(date=date, ticker=ticker)
+			except TickerValue.DoesNotExist:
+				try: 
+					date = date - timedelta(2)
+					ticker_value_at_start_date = TickerValue.objects.get(date=date, ticker=ticker)
+				except:
+					date = date - timedelta(3)
+					ticker_value_at_start_date = TickerValue.objects.get(date=date, ticker=ticker)
 
 		try:
 			ticker_value_at_сurrent_date = TickerValue.objects.get(ticker=ticker, date=yesterday)

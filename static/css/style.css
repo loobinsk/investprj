@@ -38,7 +38,12 @@ ul {
 }
 
 .ml-auto {
+    margin-top: 7px;
     margin-left: auto;
+}
+
+.ml-auto:hover {
+    cursor: pointer;
 }
 
 .text-right {

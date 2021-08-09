@@ -31,22 +31,22 @@
                     </a>
                 </div>
                 <div class="navbar-bottom d-flex align-items-center w-100">
-                    <a href="clients.html" class="back">Назад</a>
+                    <a href="javascript:history.go(-1)" class="back">Назад</a>
                     <ul class="nav nav-tabs overview-tabs" id="tabsOverview" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link waves-effect" id="tabOverview" data-mdb-toggle="tab" href="#tabOverviewContent" role="tab" aria-controls="tabOverviewContent" aria-selected="true">Обзор</a>
+                            <a class="nav-link waves-effect active" id="tabOverview" data-mdb-toggle="tab" href="#tabOverviewContent" role="tab" aria-controls="tabOverviewContent" aria-selected="true">Обзор</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link waves-effect active" id="tabOverviewNotify" data-mdb-toggle="tab" href="#tabOverviewNotifyContent" role="tab" aria-controls="tabOverviewNotifyContent" aria-selected="false">Уведомления</a>
+                            <a class="nav-link waves-effect" id="tabOverviewNotify" data-mdb-toggle="tab" href="#tabOverviewNotifyContent" role="tab" aria-controls="tabOverviewNotifyContent" aria-selected="false">Уведомления</a>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary export-txt ml-auto">
+<!--                     <button type="button" class="btn btn-primary export-txt ml-auto">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.8501 1L3.6001 3.8125L5.2876 3.8125L5.2876 7.75L6.4126 7.75L6.4126 3.8125L8.1001 3.8125L5.8501 1Z" fill="white" />
                             <path d="M1.125 10.4837L10.125 10.4837L10.125 6.40039L11.25 6.40039L11.25 10.4837C11.25 11.1271 10.7454 11.6504 10.125 11.6504L1.125 11.6504C0.504563 11.6504 3.1815e-07 11.1271 2.74842e-07 10.4837L0 6.40039L1.125 6.40039L1.125 10.4837Z" fill="white" />
                         </svg>
                         <span>Экспорт в txt</span>
-                    </button>
+                    </button>-->
                 </div>
             </div>
         </nav>
@@ -83,7 +83,7 @@
             </div>
             <!-- Tabs content -->
             <div class="tab-content" id="tabsTopContent">
-                <div class="tab-pane fade" id="tabOverviewContent" role="tabpanel" aria-labelledby="tabOverviewContent">
+                <div class="tab-pane fade active show" id="tabOverviewContent" role="tabpanel" aria-labelledby="tabOverviewContent">
                     <div class="row fadeIn justify-content-between overview__row_1">
                         <div class="card overview-client">
                             <div class="card-body d-flex align-items-center">
@@ -431,7 +431,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade show active" id="tabOverviewNotifyContent" role="tabpanel" aria-labelledby="tabOverviewNotifyContent">
+                <div class="tab-pane fade" id="tabOverviewNotifyContent" role="tabpanel" aria-labelledby="tabOverviewNotifyContent">
                     <div class="row fadeIn">
                         <div class="col-md-7">
                             <div class="card signals">

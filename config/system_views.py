@@ -19,10 +19,15 @@ from .ticker_list import american_shares
 from .ticker_list import american_sectors
 from .ticker_list import type_american_shares
 from .ticker_list import type_rf_shares
+from django.shortcuts import render
 from .ticker_list import rf_sectors
 from .ticker_list import BLACK_LIST
 
 
+
+def test_prj(request):
+	template = 'fwefwe.html'
+	return render(request, template)
 
 def logic_test(request):
 	get_portfolio = Portfolio.objects.get(name='Портфель номер 3')

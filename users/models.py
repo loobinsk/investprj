@@ -43,11 +43,11 @@ class InvestmentAdvisor(models.Model):
 class Client(models.Model):
 	investmen = models.ForeignKey(InvestmentAdvisor, on_delete=models.CASCADE, related_name='client')
 	name = models.CharField(max_length=255)
-	description = models.TextField(blank=True)
-	date_of_birth = models.DateField()
-	retirement_date = models.DateField()
-	drawdown_behavior = models.PositiveSmallIntegerField(choices=DRAWDOWN_BEHAVIOR,)
-	employment_status = models.PositiveSmallIntegerField(choices=EMPLOYMENT_STATUS,)
+	description = models.TextField(null=True, blank=True)
+	date_of_birth = models.DateField(null=True, blank=True)
+	retirement_date = models.DateField(null=True, blank=True)
+	drawdown_behavior = models.PositiveSmallIntegerField(choices=DRAWDOWN_BEHAVIOR, null=True, blank=True)
+	employment_status = models.PositiveSmallIntegerField(choices=EMPLOYMENT_STATUS, null=True, blank=True)
 
 
 

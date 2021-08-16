@@ -66,24 +66,27 @@ INVESTMENT_STRATEGY = (
 class Portfolio(models.Model):
 	client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='portfolio')
 	name = models.CharField('название', max_length=255)
-	initial_investment_amount = models.PositiveIntegerField('начальная сумма инвестиций',)
-	investment_horizon = models.PositiveIntegerField('инвестиционный горизонт',)
-	type_investor = models.PositiveSmallIntegerField('тип инвестора', choices=TYPE_INVESTOR)
-	currency = models.PositiveSmallIntegerField('валюта', choices=CURRENCY)
-	maximum_allowable_drawdown = models.FloatField('максимально допустимая просадка',)
-	type_according_risk_reward = models.PositiveSmallIntegerField('тип по соотношению риска/прибыли', choices=TYPE_RISK)
-	focus = models.PositiveSmallIntegerField('фокус', choices=FOCUS)
+	initial_investment_amount = models.PositiveIntegerField('начальная сумма инвестиций', blank=True)
+	investment_horizon = models.PositiveIntegerField('инвестиционный горизонт', blank=True)
+	type_investor = models.PositiveSmallIntegerField('тип инвестора', choices=TYPE_INVESTOR, blank=True)
+	currency = models.PositiveSmallIntegerField('валюта', choices=CURRENCY, blank=True)
+	maximum_allowable_drawdown = models.FloatField('максимально допустимая просадка', blank=True)
+	type_according_risk_reward = models.PositiveSmallIntegerField('тип по соотношению риска/прибыли', choices=TYPE_RISK, blank=True)
+	focus = models.PositiveSmallIntegerField('фокус', choices=FOCUS, blank=True)
 	sector_blacklist = models.TextField(blank=True)
 	shares_blacklist = models.TextField(blank=True) 
-	types_assets = models.TextField()
-	ETF = models.PositiveSmallIntegerField(choices=ETF)
-	investment_strategy = models.PositiveSmallIntegerField('инвестиционная стратегия', choices=INVESTMENT_STRATEGY)
+	types_assets = models.TextField(blank=True)
+	ETF = models.PositiveSmallIntegerField(choices=ETF, blank=True)
+	investment_strategy = models.PositiveSmallIntegerField('инвестиционная стратегия', choices=INVESTMENT_STRATEGY, blank=True)
 	create_date = models.DateField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	active = models.BooleanField()
+	active = models.BooleanField(blank=True)
 
 	def __str__(self):
 		return self.name
+
+	def get_type_according_risk_reward(self):
+		return TYPE_RISK[self.type_according_risk_reward][1]
 
 	def get_currency(self):
 		return CURRENCY[self.currency][1]
@@ -120,7 +123,7 @@ class Stock(models.Model):
 	portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='stock')
 	ticker = models.ForeignKey(Ticker, on_delete=models.CASCADE, related_name='ticker')
 	share = models.FloatField()
-	value_share = models.FloatField(blank=True)
+	value_share = models.FloatField(blank=True, null=True)
 
 	def get_total_active(self):
 		today = datetime.now()

@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
+
 from . import views
 from . import client_views
 from . import account_views
 from . import system_views
+
 
 
 
@@ -28,6 +31,24 @@ urlpatterns = [
     path('login/', account_views.login, name='login'),
     path('logout/', account_views.logout, name='logout'),
     path('admin/', admin.site.urls),
-    path('add_shares_in_db/', system_views.add_data_for_all_shares_to_the_internal_database, name='asid'),
+
+    path('add_shares_in_db/', 
+        system_views.add_data_for_all_shares_to_the_internal_database, 
+        name='asid'),
+    
     path('test/', system_views.logic_test),
+    path('test-prj/', system_views.test_prj),
+
+    path('password_reset/',
+        auth_views.PasswordResetView.as_view(),
+        name='password_reset'),
+    path('password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done'),
+    path('reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm'),
+    path('reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete'),
 ]
